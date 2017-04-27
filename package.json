@@ -1,0 +1,28 @@
+{
+  "name": "koa-hbs-koa2-howto",
+  "description": "How-To for using Koa2 with koa-hbs",
+  "version": "0.0.1",
+  "author": "Andrew Powell <andrew@shellscape.org>",
+  "license": "MIT",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --harmony-async-await app.js"
+  },
+  "engines": {
+    "node": ">=7.0.0"
+  },
+  "dependencies": {
+    "koa": "^2.0.0",
+    "koa-convert": "^1.2.0",
+    "koa-hbs": "^0.9.0",
+    "koa-router": "^7.0.0",
+    "koa-static": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.23.0"
+  }
+}
