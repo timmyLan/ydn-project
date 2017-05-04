@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Header -->
+            {% include "header.html" %}
+            <!-- Banner -->
+            <section id="banner">
+                <div class="content">
+                    <header>
+                        <h1>{{ h1Text }}</h1>
+                        <p>{{ subText }}</p>
+                    </header>
+                    <p>{{ introduction }}</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button big">了解更多</a></li>
+                    </ul>
+                </div>
+                <span class="image object">
+                    <img src="{{ imageUrl }}" alt=""/>
+                </span>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>{{ productCategory }}</h2>
+                </header>
+                <div class="features">
+                    <article>
+                        <span class="icon fa-diamond"></span>
+                        <div class="content">
+                            <h3>{{ category1 }}</h3>
+                            <p>{{ category1Introduction }}</p>
+                        </div>
+                    </article>
+                    <article>
+                        <span class="icon fa-paper-plane"></span>
+                        <div class="content">
+                            <h3>{{ category2 }}</h3>
+                            <p>{{ category2Introduction }}</p>
+                        </div>
+                    </article>
+                    <article>
+                        <span class="icon fa-rocket"></span>
+                        <div class="content">
+                            <h3>{{ category3 }}</h3>
+                            <p>{{ category3Introduction }}</p>
+                        </div>
+                    </article>
+                    <article>
+                        <span class="icon fa-signal"></span>
+                        <div class="content">
+                            <h3>{{ category4 }}</h3>
+                            <p>{{ category4Introduction }}</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>{{ faddishTitle }}</h2>
+                </header>
+                <div class="posts">
+                    <article>
+                        <a href="#" class="image"><img src="/images/pic01.jpg" alt=""/></a>
+                        <h3>{{ faddish1 }}</h3>
+                        <p>{{ faddish1Introduction }}</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">了解更多</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="/images/pic02.jpg" alt=""/></a>
+                        <h3>{{ faddish2 }}</h3>
+                        <p>{{ faddish2Introduction }}</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">了解更多</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="/images/pic03.jpg" alt=""/></a>
+                        <h3>{{ faddish3 }}</h3>
+                        <p>{{ faddish3Introduction }}</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">了解更多</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="/images/pic04.jpg" alt=""/></a>
+                        <h3>{{ faddish4 }}</h3>
+                        <p>{{ faddish4Introduction }}</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">了解更多</a></li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <header class="major">
+                    <h2>{{ freshTitle }}</h2>
+                </header>
+                <div class="posts">
+                    <article>
+                        <a href="#" class="image"><img src="/images/pic05.jpg" alt=""/></a>
+                        <h3>{{ fresh1 }}</h3>
+                        <p>{{ fresh1Introduction }}</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">了解更多</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="/images/pic06.jpg" alt=""/></a>
+                        <h3>{{ fresh2 }}</h3>
+                        <p>{{ fresh2Introduction }}</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">了解更多</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="/images/pic05.jpg" alt=""/></a>
+                        <h3>{{ fresh3 }}</h3>
+                        <p>{{ fresh3Introduction }}</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">了解更多</a></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <a href="#" class="image"><img src="/images/pic06.jpg" alt=""/></a>
+                        <h3>{{ fresh4 }}</h3>
+                        <p>{{ fresh4Introduction }}</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button">了解更多</a></li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+{% include "sidebar.html" %}
+
+{% endblock %}
