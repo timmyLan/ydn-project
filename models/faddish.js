@@ -17,6 +17,9 @@ const Faddish = sequelize.define(
         },
         'tbUrl': {
             'type': Sequelize.STRING(64)
+        },
+        'sortIntroduction': {
+            'type': Sequelize.STRING(64)
         }
     }
 );

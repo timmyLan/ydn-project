@@ -12,7 +12,6 @@ router.get('/', async(ctx)=> {
             ...company,
             ...sidebar
         };
-        console.log('context', context);
         return ctx.render('company', context);
     } catch (err) {
         console.log('ERROR with company render', err);

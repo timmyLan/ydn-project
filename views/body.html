@@ -30,34 +30,15 @@
                     <h2>产品分类</h2>
                 </header>
                 <div class="features">
+                    {% for category in categories %}
                     <article>
                         <span class="icon fa-diamond"></span>
                         <div class="content">
-                            <h3>产品1</h3>
-                            <p>产品介绍</p>
+                            <h3>{{ category.name }}</h3>
+                            <p>{{ category.introduction }}</p>
                         </div>
                     </article>
-                    <article>
-                        <span class="icon fa-paper-plane"></span>
-                        <div class="content">
-                            <h3>产品2</h3>
-                            <p>产品介绍</p>
-                        </div>
-                    </article>
-                    <article>
-                        <span class="icon fa-rocket"></span>
-                        <div class="content">
-                            <h3>产品3</h3>
-                            <p>产品介绍</p>
-                        </div>
-                    </article>
-                    <article>
-                        <span class="icon fa-signal"></span>
-                        <div class="content">
-                            <h3>产品4</h3>
-                            <p>产品介绍</p>
-                        </div>
-                    </article>
+                    {% endfor %}
                 </div>
             </section>
 
@@ -67,38 +48,16 @@
                     <h2>爆款标题</h2>
                 </header>
                 <div class="posts">
+                    {% for faddish in faddish %}
                     <article>
-                        <a href="#" class="image"><img src="/images/pic01.jpg" alt=""/></a>
-                        <h3>爆款标题1</h3>
-                        <p>{{ faddish1Introduction }}</p>
+                        <a href="/faddish/{{ faddish.id }}" class="image"><img src="/images/pic01.jpg" alt=""/></a>
+                        <h3>{{ faddish.name }}</h3>
+                        <p>{{ faddish.sortIntroduction }}</p>
                         <ul class="actions">
                             <li><a href="#" class="button">了解更多</a></li>
                         </ul>
                     </article>
-                    <article>
-                        <a href="#" class="image"><img src="/images/pic02.jpg" alt=""/></a>
-                        <h3>爆款标题2</h3>
-                        <p>{{ faddish2Introduction }}</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button">了解更多</a></li>
-                        </ul>
-                    </article>
-                    <article>
-                        <a href="#" class="image"><img src="/images/pic03.jpg" alt=""/></a>
-                        <h3>爆款标题3</h3>
-                        <p>{{ faddish3Introduction }}</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button">了解更多</a></li>
-                        </ul>
-                    </article>
-                    <article>
-                        <a href="#" class="image"><img src="/images/pic04.jpg" alt=""/></a>
-                        <h3>爆款标题4</h3>
-                        <p>{{ faddish4Introduction }}</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button">了解更多</a></li>
-                        </ul>
-                    </article>
+                    {% endfor %}
                 </div>
             </section>
             <section>
@@ -106,38 +65,16 @@
                     <h2>上新标题</h2>
                 </header>
                 <div class="posts">
+                    {% for fresh in fresh %}
                     <article>
-                        <a href="#" class="image"><img src="/images/pic05.jpg" alt=""/></a>
-                        <h3>上新标题1</h3>
-                        <p>{{ fresh1Introduction }}</p>
+                        <a href="/fresh/{{ fresh.id }}" class="image"><img src="/images/pic05.jpg" alt=""/></a>
+                        <h3>{{fresh.name}}</h3>
+                        <p>{{ fresh.sortIntroduction }}</p>
                         <ul class="actions">
                             <li><a href="#" class="button">了解更多</a></li>
                         </ul>
                     </article>
-                    <article>
-                        <a href="#" class="image"><img src="/images/pic06.jpg" alt=""/></a>
-                        <h3>上新标题2</h3>
-                        <p>{{ fresh2Introduction }}</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button">了解更多</a></li>
-                        </ul>
-                    </article>
-                    <article>
-                        <a href="#" class="image"><img src="/images/pic05.jpg" alt=""/></a>
-                        <h3>上新标题3</h3>
-                        <p>{{ fresh3Introduction }}</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button">了解更多</a></li>
-                        </ul>
-                    </article>
-                    <article>
-                        <a href="#" class="image"><img src="/images/pic06.jpg" alt=""/></a>
-                        <h3>上新标题4</h3>
-                        <p>{{ fresh4Introduction }}</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button">了解更多</a></li>
-                        </ul>
-                    </article>
+                    {% endfor %}
                 </div>
             </section>
         </div>

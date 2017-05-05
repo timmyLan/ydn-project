@@ -11,6 +11,12 @@ const Category = sequelize.define(
     {
         'name': {
             'type': Sequelize.STRING(64)
+        },
+        'introduction': {
+            'type': Sequelize.STRING(64)
+        },
+        'isShow': {
+            'type': Sequelize.BOOLEAN
         }
     }
 );
