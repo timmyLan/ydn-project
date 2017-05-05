@@ -6,10 +6,14 @@ import sequelize from '../sequelize';
 import Faddish from './faddish';
 import Main from './main';
 import Fresh from './fresh';
+
 const Property = sequelize.define(
     'property',
     {
         'name': {
+            'type': Sequelize.STRING(64)
+        },
+        'type':{
             'type': Sequelize.STRING(64)
         }
     }

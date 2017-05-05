@@ -6,6 +6,13 @@ import Fresh from '../models/fresh';
 import Main from '../models/main';
 import Company from '../models/company';
 import Category from '../models/category';
+import Property from '../models/property';
+const countPerPage = 10;
+const currentPage = 1;
+const paging = {
+    'limit': countPerPage,                      // 每页多少条
+    'offset': countPerPage * (currentPage - 1)  // 跳过多少条
+};
 const getSidebar = async()=> {
     try {
         let faddishResult = await Faddish.findAll({
@@ -73,19 +80,25 @@ const getBelongCategory = async(id)=> {
             where: {
                 category_id: id
             },
-            raw: true
+            include: Property,
+            raw: true,
+            ...paging
         });
         let freshResult = await Fresh.findAll({
             where: {
                 category_id: id
             },
-            raw: true
+            include: Property,
+            raw: true,
+            ...paging
         });
         let mainResult = await Main.findAll({
             where: {
                 category_id: id
             },
-            raw: true
+            include: Property,
+            raw: true,
+            ...paging
         });
         return [...freshResult, ...faddishResult, ...mainResult];
     } catch (err) {
