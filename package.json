@@ -25,6 +25,8 @@
     "babel-register": "^6.23.0",
     "koa-bodyparser": "^4.2.0",
     "koa-json": "^2.0.2",
-    "nodemon": "^1.11.0"
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0",
+    "sequelize": "^3.30.4"
   }
 }
