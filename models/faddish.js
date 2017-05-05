@@ -14,6 +14,9 @@ const Faddish = sequelize.define(
         },
         'isShow': {
             'type': Sequelize.BOOLEAN
+        },
+        'tbUrl': {
+            'type': Sequelize.STRING(64)
         }
     }
 );

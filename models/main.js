@@ -14,6 +14,12 @@ const Main = sequelize.define(
         },
         'isShow': {
             'type': Sequelize.BOOLEAN
+        },
+        'sortIntroduction': {
+            'type': Sequelize.STRING(64)
+        },
+        'tbUrl': {
+            'type': Sequelize.STRING(64)
         }
     }
 );

@@ -1,48 +1,52 @@
 /**
  * Created by llan on 2017/5/4.
  */
-import Fresh from '../models/fresh';
+import Faddish from '../models/faddish';
 const router = require('koa-router')();
 router.get('/:id', async(ctx)=> {
     try {
         let id = ctx.params.id;
-        let result = await Fresh.findById(id);
+        let result = await Faddish.findById(id, {
+            raw: true
+        });
         if (result) {
-            return ctx.render('fresh', result.toJSON());
+            return ctx.render('faddish', result);
         } else {
             return ctx.body = {
                 info: 'id not match'
             }
         }
     } catch (err) {
-        console.log('ERROR with fresh render', err);
+        console.log('ERROR with faddish render', err);
     }
 });
 
 router.post('/create', async(ctx)=> {
     try {
-        let {name, isShow, introduction}  = ctx.request.body;
-        let result = await Fresh.findOne({
+        let {name, isShow, introduction, tbUrl}  = ctx.request.body;
+        let result = await Faddish.findOne({
             where: {
                 name: name
-            }
+            },
+            raw: true
         });
         if (!result) {
-            await Fresh.create({
+            await Faddish.create({
                 name: name,
                 isShow: isShow,
-                introduction: introduction
+                introduction: introduction,
+                tbUrl
             });
             return ctx.body = {
-                info: 'success to create fresh'
+                info: 'success to create faddish'
             };
         } else {
             return ctx.body = {
-                errorInfo: 'fresh has been exits'
+                errorInfo: 'faddish has been exits'
             }
         }
     } catch (err) {
-        console.log('Error with createFresh file', err);
+        console.log('Error with createFaddish', err);
     }
 });
 module.exports = router;

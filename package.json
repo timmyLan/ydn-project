@@ -6,7 +6,8 @@
   "license": "MIT",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "sequelize":"node_modules/.bin/sequelize db:migrate"
   },
   "engines": {
     "node": ">=7.0.0"
@@ -27,6 +28,7 @@
     "koa-json": "^2.0.2",
     "mysql": "^2.13.0",
     "nodemon": "^1.11.0",
-    "sequelize": "^3.30.4"
+    "sequelize": "^3.30.4",
+    "sequelize-cli": "^2.7.0"
   }
 }

@@ -6,9 +6,11 @@ const router = require('koa-router')();
 router.get('/:id', async(ctx)=> {
     try {
         let id = ctx.params.id;
-        let result = await Main.findById(id);
+        let result = await Main.findById(id, {
+            raw: true
+        });
         if (result) {
-            return ctx.render('main', result.toJSON());
+            return ctx.render('main', result);
         } else {
             return ctx.body = {
                 info: 'id not match'
@@ -18,20 +20,22 @@ router.get('/:id', async(ctx)=> {
         console.log('ERROR with main render', err);
     }
 });
-
 router.post('/create', async(ctx)=> {
     try {
-        let {name, isShow, introduction}  = ctx.request.body;
+        let {name, isShow, introduction, tbUrl, sortIntroduction}  = ctx.request.body;
         let result = await Main.findOne({
             where: {
                 name: name
-            }
+            },
+            raw: true
         });
         if (!result) {
             await Main.create({
                 name: name,
                 isShow: isShow,
-                introduction: introduction
+                introduction: introduction,
+                sortIntroduction: sortIntroduction,
+                tbUrl: tbUrl
             });
             return ctx.body = {
                 info: 'success to create main'

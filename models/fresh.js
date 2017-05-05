@@ -14,6 +14,9 @@ const Fresh = sequelize.define(
         },
         'isShow': {
             'type': Sequelize.BOOLEAN
+        },
+        'tbUrl': {
+            'type': Sequelize.STRING(64)
         }
     }
 );
