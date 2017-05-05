@@ -9,6 +9,7 @@ module.exports = {
                 sortIntroduction: '主推1简介',
                 tbUrl: 'www.baidu.com',
                 category_id: '1',
+                property_id:'3',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -18,6 +19,7 @@ module.exports = {
                 sortIntroduction: '主推2简介',
                 tbUrl: 'www.baidu.com',
                 category_id: '2',
+                property_id:'3',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -28,6 +30,7 @@ module.exports = {
                 sortIntroduction: '主推3简介',
                 tbUrl: 'www.baidu.com',
                 category_id: '1',
+                property_id:'3',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -38,6 +41,7 @@ module.exports = {
                 sortIntroduction: '主推4简介',
                 tbUrl: 'www.baidu.com',
                 category_id: '4',
+                property_id:'3',
                 isShow: false,
                 created_at: new Date(),
                 updated_at: new Date()

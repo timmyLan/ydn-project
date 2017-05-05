@@ -2,15 +2,23 @@
  * Created by llan on 2017/5/4.
  */
 import Faddish from '../models/faddish';
+import Property from '../models/property';
 const router = require('koa-router')();
+import {getBaseInfo} from '../routes/common';
 router.get('/:id', async(ctx)=> {
     try {
         let id = ctx.params.id;
         let result = await Faddish.findById(id, {
-            raw: true
+            raw: true,
+            include: Property
         });
+        let baseInfo = await getBaseInfo();
         if (result) {
-            return ctx.render('faddish', result);
+            let context = {
+                ...result,
+                ...baseInfo
+            };
+            return ctx.render('faddish', context);
         } else {
             return ctx.body = {
                 info: 'id not match'

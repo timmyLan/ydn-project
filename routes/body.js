@@ -2,17 +2,14 @@
  * Created by llan on 2017/5/5.
  */
 const router = require('koa-router')();
-import {getCompany, getSidebar, getCategory} from './common';
+import {getBaseInfo, getCategory} from './common';
 router.get('/', async(ctx)=> {
-    let company = await getCompany(),
-        sidebar = await getSidebar(),
+    let baseInfo = await getBaseInfo(),
         category = await getCategory(),
         context = {
-            ...company,
-            ...sidebar,
+            ...baseInfo,
             ...category
         };
-    console.log('context',context);
     return ctx.render('body', context);
 });
 module.exports = router;

@@ -1,4 +1,4 @@
- 'use strict';
+'use strict';
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
@@ -8,6 +8,7 @@ module.exports = {
                 introduction: '上新1介绍',
                 sortIntroduction: '上新1简介',
                 tbUrl: 'www.baidu.com',
+                property_id: '2',
                 category_id: '1',
                 isShow: true,
                 created_at: new Date(),
@@ -17,6 +18,7 @@ module.exports = {
                 introduction: '上新2介绍',
                 sortIntroduction: '上新2简介',
                 tbUrl: 'www.baidu.com',
+                property_id: '2',
                 category_id: '2',
                 isShow: true,
                 created_at: new Date(),
@@ -27,6 +29,7 @@ module.exports = {
                 introduction: '上新3介绍',
                 sortIntroduction: '上新3简介',
                 tbUrl: 'www.baidu.com',
+                property_id: '2',
                 category_id: '1',
                 isShow: true,
                 created_at: new Date(),
@@ -37,6 +40,7 @@ module.exports = {
                 introduction: '上新4介绍',
                 sortIntroduction: '上新4简介',
                 tbUrl: 'www.baidu.com',
+                property_id: '2',
                 category_id: '4',
                 isShow: true,
                 created_at: new Date(),

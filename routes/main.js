@@ -2,15 +2,24 @@
  * Created by llan on 2017/5/4.
  */
 import Main from '../models/main';
+import Property from '../models/property';
 const router = require('koa-router')();
+import {getBaseInfo} from '../routes/common';
+
 router.get('/:id', async(ctx)=> {
     try {
         let id = ctx.params.id;
         let result = await Main.findById(id, {
-            raw: true
+            raw: true,
+            include: Property
         });
+        let baseInfo = await getBaseInfo();
         if (result) {
-            return ctx.render('main', result);
+            let context = {
+                ...baseInfo,
+                ...result
+            };
+            return ctx.render('main', context);
         } else {
             return ctx.body = {
                 info: 'id not match'

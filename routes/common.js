@@ -47,6 +47,14 @@ const getCompany = async()=> {
         console.log('Error with getCompany', err);
     }
 };
+const getBaseInfo = async()=> {
+    let sideBarResult = await   getSidebar();
+    let company = await getCompany();
+    return {
+        ...sideBarResult,
+        ...company
+    }
+};
 const getCategory = async()=> {
     try {
         let categories = await Category.findAll({
@@ -59,4 +67,29 @@ const getCategory = async()=> {
         console.log('Error with getCategory', err);
     }
 };
-export {getSidebar, getCompany, getCategory} ;
+const getBelongCategory = async(id)=> {
+    try {
+        let faddishResult = await Faddish.findAll({
+            where: {
+                category_id: id
+            },
+            raw: true
+        });
+        let freshResult = await Fresh.findAll({
+            where: {
+                category_id: id
+            },
+            raw: true
+        });
+        let mainResult = await Main.findAll({
+            where: {
+                category_id: id
+            },
+            raw: true
+        });
+        return [...freshResult, ...faddishResult, ...mainResult];
+    } catch (err) {
+        console.log('Error with getBelongCategory', err);
+    }
+};
+export {getBaseInfo, getCategory, getBelongCategory} ;
