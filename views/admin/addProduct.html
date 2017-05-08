@@ -1,0 +1,77 @@
+{% extends "../layout.html" %}
+{% block body %}
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Header -->
+            {% include "header.html" %}
+            <section id="banner">
+                <div class="content">
+                    <div class="row 200%">
+                        <form method="post" action="/admin/addProduct" style="width: 100%">
+                            <div class="row uniform">
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="name">产品名称</label>
+                                    <input type="text" name="name" id="name" value="" placeholder="产品名称"/>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="property">所属分类</label>
+                                    <div class="select-wrapper">
+                                        <select name="property_id" id="property">
+                                            {% for property in properties %}
+                                            <option value="{{ property.id }}" data-type="{{ property.type }}">{{
+                                                property.name }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="category">所属分类</label>
+                                    <div class="select-wrapper">
+                                        <select name="category_id" id="category">
+                                            {% for category in categories %}
+                                            <option value="{{ category.id }}">{{category.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="tbUrl">淘宝地址</label>
+                                    <input type="text" name="tbUrl" id="tbUrl" value="" placeholder="淘宝地址"/>
+                                </div>
+                            </div>
+                            <div class="row uniform">
+                                <div class="12u$">
+                                    <input type="checkbox" id="isShow" name="isShow" checked>
+                                    <label for="isShow">是否显示在主页</label>
+                                </div>
+                            </div>
+                            <div class="row uniform">
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="sortIntroduction">产品简介</label>
+                                    <textarea name="sortIntroduction" id="sortIntroduction" rows="6" placeholder="产品简介"></textarea>
+                                </div>
+                                <div class="6u$ 12u$(xsmall)">
+                                    <label for="introduction">产品介绍</label>
+                                    <textarea name="introduction" id="introduction" rows="6" placeholder="产品介绍"></textarea>
+                                </div>
+                            </div>
+                            <div class="row uniform">
+                                <div class="12u$">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="添加产品" class="special"/></li>
+                                        <li><input type="reset" value="重置"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+{% include "admin/sidebar.html" %}
+{% endblock %}

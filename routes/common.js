@@ -54,6 +54,18 @@ const getCompany = async()=> {
         console.log('Error with getCompany', err);
     }
 };
+const getProperty = async()=> {
+    try {
+        let propertyResult = await Property.findAll({
+            raw: true
+        });
+        return {
+            properties: propertyResult
+        }
+    } catch (err) {
+        console.log('Error with getProperty', err);
+    }
+};
 const getBaseInfo = async()=> {
     let sideBarResult = await   getSidebar();
     let company = await getCompany();
@@ -72,6 +84,38 @@ const getCategory = async()=> {
         }
     } catch (err) {
         console.log('Error with getCategory', err);
+    }
+};
+const getProduct = async(type, id)=> {
+    try {
+        switch (type) {
+            case 'faddish': {
+                return {
+                    product: await Faddish.findById(id, {
+                        raw: true
+                    })
+                }
+            }
+            case 'main': {
+                return {
+                    product: await Main.findById(id, {
+                        raw: true
+                    })
+                }
+            }
+            case 'fresh': {
+                return {
+                    product: await Fresh.findById(id, {
+                        raw: true
+                    })
+                }
+            }
+            default: {
+                throw 'type is wrong.'
+            }
+        }
+    } catch (err) {
+        console.log('Error with getProduct', err);
     }
 };
 const getMoreCategory = async(id)=> {
@@ -140,5 +184,41 @@ const getMore = async(type)=> {
         console.log('Error with getMore', err);
     }
 };
-
-export {getBaseInfo, getCategory, getMore, getMoreCategory,getCompany};
+const editProduct = async(type,id,body)=>{
+    try {
+        if (type) {
+            switch (type) {
+                case 'faddish': {
+                    return await Faddish.update(body,{
+                        where:{
+                            id:id
+                        }
+                    });
+                }
+                case 'fresh': {
+                    return await Fresh.update(body,{
+                        where:{
+                            id:id
+                        }
+                    });
+                }
+                case 'main': {
+                    return await Main.update(body,{
+                        where:{
+                            id:id
+                        }
+                    });
+                }
+                default:
+                    throw 'type is error';
+            }
+        } else {
+            throw 'type must be';
+        }
+    } catch (err) {
+        console.log('Error with getMore', err);
+    }
+};
+export {getBaseInfo, getCategory, getMore,
+    getMoreCategory, getCompany, getProperty,
+    getProduct,editProduct};

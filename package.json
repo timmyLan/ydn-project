@@ -1,8 +1,8 @@
 {
-  "name": "koa-hbs-koa2-howto",
-  "description": "How-To for using Koa2 with koa-hbs",
+  "name": "jewelry-manage",
+  "description": "jewelry manage",
   "version": "0.0.1",
-  "author": "Andrew Powell <andrew@shellscape.org>",
+  "author": "llan <timmylan.aquarius@gmail.com>",
   "license": "MIT",
   "main": "app.js",
   "scripts": {
