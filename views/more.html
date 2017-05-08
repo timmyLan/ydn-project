@@ -8,32 +8,36 @@
             <!-- Header -->
             {% include "header.html" %}
             <!-- Content -->
+            {% if category %}
             <h3>{{ category.name }}</h3>
+            {% else %}
+            <h3>{{ getMore[0]['property.name'] }}</h3>
+            {% endif %}
             <div class="row 200%">
                 <div class="6u 12u$(medium)">
-                    {% for belongCategory in belongCategories %}
-                    {% if (loop.index % 2 ===0) %}
+                    {% for more in getMore %}
+                    {% if (loop.index % 2 !==0) %}
                     <p class="clearfix">
                         <span class="image left">
-                            <a href="/{{belongCategory['property.type']}}/{{belongCategory.id}}">
+                            <a href="/{{more['property.type']}}/{{more.id}}">
                                 <img src="/images/pic01.jpg" alt=""/>
                             </a>
                         </span>
-                        {{belongCategory.introduction }}
+                        {{more.introduction }}
                     </p>
                     {% endif %}
                     {% endfor %}
                 </div>
                 <div class="6u 12u$(medium)">
-                    {% for belongCategory in belongCategories %}
-                    {% if (loop.index % 2 !==0) %}
+                    {% for more in getMore %}
+                    {% if (loop.index % 2 ===0) %}
                     <p class="clearfix">
                         <span class="image left">
-                            <a href="/{{belongCategory['property.type']}}/{{belongCategory.id}}">
+                            <a href="/{{more['property.type']}}/{{more.id}}">
                                 <img src="/images/pic01.jpg" alt=""/>
                             </a>
                         </span>
-                        {{belongCategory.introduction }}
+                        {{more.introduction }}
                     </p>
                     {% endif %}
                     {% endfor %}

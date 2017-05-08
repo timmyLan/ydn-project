@@ -74,7 +74,7 @@ const getCategory = async()=> {
         console.log('Error with getCategory', err);
     }
 };
-const getBelongCategory = async(id)=> {
+const getMoreCategory = async(id)=> {
     try {
         let faddishResult = await Faddish.findAll({
             where: {
@@ -102,7 +102,43 @@ const getBelongCategory = async(id)=> {
         });
         return [...freshResult, ...faddishResult, ...mainResult];
     } catch (err) {
-        console.log('Error with getBelongCategory', err);
+        console.log('Error with getMoreCategory', err);
     }
 };
-export {getBaseInfo, getCategory, getBelongCategory} ;
+const getMore = async(type)=> {
+    try {
+        if (type) {
+            switch (type) {
+                case 'faddish': {
+                    return await Faddish.findAll({
+                        raw: true,
+                        include: Property,
+                        ...paging
+                    });
+                }
+                case 'fresh': {
+                    return await Fresh.findAll({
+                        raw: true,
+                        include: Property,
+                        ...paging
+                    });
+                }
+                case 'main': {
+                    return await Main.findAll({
+                        raw: true,
+                        include: Property,
+                        ...paging
+                    });
+                }
+                default:
+                    throw 'type is error';
+            }
+        } else {
+            throw 'type must be';
+        }
+    } catch (err) {
+        console.log('Error with getMore', err);
+    }
+};
+
+export {getBaseInfo, getCategory, getMore, getMoreCategory,getCompany};

@@ -36,7 +36,7 @@
                         <div class="content">
                             <h3>{{ category.name }}</h3>
                             <p>{{ category.introduction }}</p>
-                            <a href="/category/{{ category.id }}" class="button">了解更多</a>
+                            <a href="/more/category/{{ category.id }}" class="button">了解更多</a>
                         </div>
                     </article>
                     {% endfor %}
@@ -55,7 +55,7 @@
                         <h3>{{ faddish.name }}</h3>
                         <p>{{ faddish.sortIntroduction }}</p>
                         <ul class="actions">
-                            <li><a href="#" class="button">了解更多</a></li>
+                            <li><a href="/faddish/{{ faddish.id }}" class="button">了解更多</a></li>
                         </ul>
                     </article>
                     {% endfor %}
@@ -72,7 +72,7 @@
                         <h3>{{fresh.name}}</h3>
                         <p>{{ fresh.sortIntroduction }}</p>
                         <ul class="actions">
-                            <li><a href="#" class="button">了解更多</a></li>
+                            <li><a href="/fresh/{{ fresh.id }}" class="button">了解更多</a></li>
                         </ul>
                     </article>
                     {% endfor %}
