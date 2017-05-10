@@ -15,9 +15,7 @@ app.use(views(path.join(__dirname, '/views')), {
 });
 app.use(bodyParser());
 app.use(json());
-
 //routes
-
 app.use(router.routes());
 
 //connect mysql

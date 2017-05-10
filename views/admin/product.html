@@ -1,0 +1,112 @@
+{% extends "./adminLayout.html" %}
+{% block body %}
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Header -->
+            {% include "header.html" %}
+            <section id="banner">
+                <div class="content">
+                    <div class="row">
+                        <h2>产品搜索</h2>
+                        <form method="post" action="/admin/searchProduct/1" style="width: 100%">
+                            <div class="row uniform">
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="name">产品名称</label>
+                                    <input type="text" name="name" id="name" value="" placeholder="产品名称"/>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="property">所属类目</label>
+                                    <div class="select-wrapper">
+                                        <select name="property_id" id="property">
+                                            <option value="0">全部</option>
+                                            {% for property in properties %}
+                                            <option value="{{ property.id }}" data-type="{{ property.type }}">{{
+                                                property.name }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="category">所属分类</label>
+                                    <div class="select-wrapper">
+                                        <select name="category_id" id="category">
+                                            <option value="0">全部</option>
+                                            {% for category in categories %}
+                                            <option value="{{ category.id }}">{{category.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row uniform">
+                                <div class="12u$">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="搜索" class="special"/></li>
+                                        <li><input type="reset" value="重置"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                        <h2 style="width: 100%">搜索结果:</h2>
+                        {% if products.rows.length > 0 %}
+                        <div class="table-wrapper" style="width:100%">
+                            <table class="alt">
+                                <thead>
+                                <tr>
+                                    <th class="ellipsis">产品名称</th>
+                                    <th class="ellipsis">是否展示在首页</th>
+                                    <th class="ellipsis">淘宝链接</th>
+                                    <th class="ellipsis">所属类目</th>
+                                    <th class="ellipsis">所属分类</th>
+                                    <th class="ellipsis">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for product in products.rows %}
+                                <tr>
+                                    <td class="ellipsis">{{ product.name }}</td>
+                                    <td class="ellipsis">{% if product.isShow === 1 %}是{% else %}否{% endif %}</td>
+                                    <td class="ellipsis">{{ product.tbUrl }}</td>
+                                    <td class="ellipsis">{{ product['property.name'] }}</td>
+                                    <td class="ellipsis">{{ product['category.name'] }}</td>
+                                    <td>
+                                        <ul class="actions ellipsis" style="margin:0">
+                                            <li><a href="/admin/editProduct/{{ product.id }}"
+                                                   class="button small">修改</a></li>
+                                            <li><a href="/admin/deleteProduct/{{ product.id }}"
+                                                   class="button special small">删除</a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            {% if products.pageArrs.length > 1%}
+                            <ul class="pagination">
+                                <li><a href="/admin/searchProduct/{{ products.currentPage - 1 }}"
+                                       class="button {% if products.currentPage == 1 %}disabled{% endif %}">上一页</a>
+                                </li>
+                                {% for page in products.pageArrs %}
+                                <li><a href="/admin/searchProduct/{{ page }}"
+                                       class="page {% if products.currentPage == page %} active {% endif %}">{{
+                                    page}}</a></li>
+                                {% endfor %}
+                                <li><a href="/admin/searchProduct/{{ products.currentPage + 1 }}"
+                                       class="button {% if products.currentPage == products.pageArrs.length %}disabled{% endif %}">下一页</a>
+                                </li>
+                            </ul>
+                            {% endif %}
+                        </div>
+                        {% else%}
+                            <h4>很抱歉,找不到相应的结果</h4>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+<!-- Info -->
+{%  if info %}
+<div class="{% if info.status == 200 %}info-success {% else %}info-danger {% endif %} info ellipsis">
+    <h3>{{ info.context }}</h3>
+    <span class="info-close">x</span>
+</div>
+{% endif %}

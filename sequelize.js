@@ -3,5 +3,6 @@
  */
 const Sequelize = require('sequelize');
 import config from './config/config';
-let sequelize = new Sequelize(config.dbConfig.db, config.dbConfig.user, config.dbConfig.password, config.dbConfig.sequelizeConfig);
+let sequelize = new Sequelize(config.dbConfig.db, config.dbConfig.user, config.dbConfig.password,
+    config.dbConfig.sequelizeConfig);
 export default sequelize;

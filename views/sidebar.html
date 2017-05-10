@@ -13,18 +13,18 @@
                     <span class="opener">爆款标题</span>
                     <ul>
                         {% for faddish in faddish %}
-                        <li><a href="/faddish/{{ faddish.id }}">{{ faddish.name }}</a></li>
+                        <li><a href="/product/{{ faddish.id }}">{{ faddish.name }}</a></li>
                         {% endfor %}
-                        <li><a href="/more/faddish">了解更多</a></li>
+                        <li><a href="/more/1">了解更多</a></li>
                     </ul>
                 </li>
                 <li>
                     <span class="opener">上新标题</span>
                     <ul>
                         {% for fresh in fresh %}
-                        <li><a href="/fresh/{{ fresh.id }}">{{ fresh.name }}</a></li>
+                        <li><a href="/product/{{ fresh.id }}">{{ fresh.name }}</a></li>
                         {% endfor %}
-                        <li><a href="/more/fresh">了解更多</a></li>
+                        <li><a href="/more/2">了解更多</a></li>
                     </ul>
                 </li>
             </ul>
@@ -38,13 +38,13 @@
             <div class="mini-posts">
                 {% for main in main %}
                 <article>
-                    <a href="/main/{{ main.id }}" class="image"><img src="/images/pic07.jpg" alt=""/></a>
+                    <a href="/product/{{ main.id }}" class="image"><img src="/images/pic07.jpg" alt=""/></a>
                     <p>{{ main.sortIntroduction }}</p>
                 </article>
                 {% endfor %}
             </div>
             <ul class="actions">
-                <li><a href="/more/main" class="button">了解更多</a></li>
+                <li><a href="/more/3" class="button">了解更多</a></li>
             </ul>
         </section>
 
@@ -55,7 +55,7 @@
             </header>
             <p>{{ introduction }}</p>
             <ul class="contact">
-                <li class="fa-envelope-o"><a href="#">{{ company.email }}</a></li>
+                <li class="fa-envelope-o">{{ company.email }}</li>
                 <li class="fa-phone">{{ company.phone }}</li>
                 <li class="fa-home">{{ company.address }}</li>
             </ul>

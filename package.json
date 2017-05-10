@@ -7,13 +7,14 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon index.js",
-    "sequelize":"node_modules/.bin/sequelize db:migrate"
+    "sequelize": "node_modules/.bin/sequelize db:migrate"
   },
   "engines": {
     "node": ">=7.0.0"
   },
   "dependencies": {
     "koa": "^2.0.0",
+    "koa-multer": "^1.0.1",
     "koa-nunjucks-promise": "^1.1.1",
     "koa-router": "^7.0.0",
     "koa-static": "^3.0.0"

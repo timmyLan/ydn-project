@@ -5,7 +5,8 @@ const host = 'localhost',
     dialect = 'mysql',
     database = 'jewelry',
     user = 'root',
-    password = null;
+    password = null,
+    timezone = '+08:00';
 const config = {
     dbConfig: {
         db: database,
@@ -17,7 +18,8 @@ const config = {
             'port': 3306,        // 数据库服务器端口
             'define': {
                 'underscored': true
-            }
+            },
+            timezone: timezone
         }
     },
     //sequelize-cli
@@ -26,7 +28,8 @@ const config = {
         "password": password,
         "database": database,
         "host": host,
-        "dialect": dialect
+        "dialect": dialect,
+        timezone: timezone
     }
 };
 module.exports = config;

@@ -19,7 +19,7 @@
                     {% if (loop.index % 2 !==0) %}
                     <p class="clearfix">
                         <span class="image left">
-                            <a href="/{{more['property.type']}}/{{more.id}}">
+                            <a href="/product/{{more.id}}">
                                 <img src="/images/pic01.jpg" alt=""/>
                             </a>
                         </span>
@@ -33,7 +33,7 @@
                     {% if (loop.index % 2 ===0) %}
                     <p class="clearfix">
                         <span class="image left">
-                            <a href="/{{more['property.type']}}/{{more.id}}">
+                            <a href="/product/{{more.id}}">
                                 <img src="/images/pic01.jpg" alt=""/>
                             </a>
                         </span>
@@ -46,5 +46,4 @@
         </div>
     </div>
 </div>
-{% include "sidebar.html" %}
 {% endblock %}

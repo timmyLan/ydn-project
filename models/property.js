@@ -3,26 +3,19 @@
  */
 import Sequelize from 'sequelize';
 import sequelize from '../sequelize';
-import Faddish from './faddish';
-import Main from './main';
-import Fresh from './fresh';
-
+import Product from './product';
 const Property = sequelize.define(
     'property',
     {
         'name': {
             'type': Sequelize.STRING(64)
         },
-        'type':{
+        'type': {
             'type': Sequelize.STRING(64)
         }
     }
 );
 //Relation
-Property.hasMany(Faddish);
-Property.hasMany(Faddish);
-Property.hasMany(Fresh);
-Faddish.belongsTo(Property);
-Fresh.belongsTo(Property);
-Main.belongsTo(Property);
+Property.hasMany(Product);
+Product.belongsTo(Property);
 export default Property;

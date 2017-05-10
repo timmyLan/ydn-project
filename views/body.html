@@ -16,7 +16,7 @@
                     </header>
                     <p>{{ company.introduction }}</p>
                     <ul class="actions">
-                        <li><a href="#" class="button big">了解更多</a></li>
+                        <li><a href="/company" class="button big">了解更多</a></li>
                     </ul>
                 </div>
                 <span class="image object">
@@ -51,11 +51,11 @@
                 <div class="posts">
                     {% for faddish in faddish %}
                     <article>
-                        <a href="/faddish/{{ faddish.id }}" class="image"><img src="/images/pic01.jpg" alt=""/></a>
+                        <a href="/product/{{ faddish.id }}" class="image"><img src="/images/pic01.jpg" alt=""/></a>
                         <h3>{{ faddish.name }}</h3>
                         <p>{{ faddish.sortIntroduction }}</p>
                         <ul class="actions">
-                            <li><a href="/faddish/{{ faddish.id }}" class="button">了解更多</a></li>
+                            <li><a href="/product/{{ faddish.id }}" class="button">了解更多</a></li>
                         </ul>
                     </article>
                     {% endfor %}
@@ -68,11 +68,11 @@
                 <div class="posts">
                     {% for fresh in fresh %}
                     <article>
-                        <a href="/fresh/{{ fresh.id }}" class="image"><img src="/images/pic05.jpg" alt=""/></a>
+                        <a href="/product/{{ fresh.id }}" class="image"><img src="/images/pic05.jpg" alt=""/></a>
                         <h3>{{fresh.name}}</h3>
                         <p>{{ fresh.sortIntroduction }}</p>
                         <ul class="actions">
-                            <li><a href="/fresh/{{ fresh.id }}" class="button">了解更多</a></li>
+                            <li><a href="/product/{{ fresh.id }}" class="button">了解更多</a></li>
                         </ul>
                     </article>
                     {% endfor %}
@@ -81,6 +81,4 @@
         </div>
     </div>
 </div>
-{% include "sidebar.html" %}
-
 {% endblock %}

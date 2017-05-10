@@ -1,4 +1,4 @@
-{% extends "../layout.html" %}
+{% extends "./adminLayout.html" %}
 {% block body %}
 <div id="wrapper">
     <!-- Main -->
@@ -9,10 +9,12 @@
             <section id="banner">
                 <div class="content">
                     <div class="row 200%">
-                        <form method="post" action="/admin/editProduct/{{ type }}/{{ id }}" style="width: 100%">
+                        <form id="editProductForm" method="post" enctype="multipart/form-data" style="width: 100%">
+                            <input type="hidden" value="{{ product.id }}" id="productId">
                             <div class="row uniform">
                                 <div class="6u 12u$(xsmall)">
-                                    <label for="name">产品名称</label>
+                                    <label for="name">产品名称 <span class="subWarning" id="nameWarning">注意:产品名称必须填写</span>
+                                    </label>
                                     <input type="text" name="name" id="name" value="{{ product.name }}"
                                            placeholder="产品名称"/>
                                 </div>
@@ -21,7 +23,8 @@
                                     <div class="select-wrapper">
                                         <select name="property_id" id="property">
                                             {% for property in properties %}
-                                            <option value="{{ property.id }}" data-type="{{ property.type }}" {% if property.id === product.property_id %}selected{% endif %}>{{
+                                            <option value="{{ property.id }}" {% if
+                                                    property.id=== product.property_id %}selected{% endif %}>{{
                                                 property.name }}
                                             </option>
                                             {% endfor %}
@@ -33,7 +36,9 @@
                                     <div class="select-wrapper">
                                         <select name="category_id" id="category">
                                             {% for category in categories %}
-                                            <option value="{{ category.id }}" {% if category.id === product.category_id %}selected{% endif %}>{{category.name }}</option>
+                                            <option value="{{ category.id }}" {% if category.id=== product.category_id
+                                                    %}selected{% endif %}>{{category.name }}
+                                            </option>
                                             {% endfor %}
                                         </select>
                                     </div>
@@ -43,11 +48,19 @@
                                     <input type="text" name="tbUrl" id="tbUrl" value="{{ product.tbUrl }}"
                                            placeholder="淘宝地址"/>
                                 </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="imgFile">上传图片</label>
+                                    <input type="file" id="imgFile" name='imgFile' placeholder="选择上传图片"/>
+                                    <p class="subWarning" id="imgWarning">注意:只能上传图片类型</p>
+                                </div>
                             </div>
                             <div class="row uniform">
                                 <div class="12u$">
-                                    <input type="checkbox" id="isShow" name="isShow" {% if product.isShow=== 1 %}checked{% endif %}>
-                                    <label for="isShow">是否显示在主页</label>
+                                    <input type="checkbox" id="show" name="show" {% if product.isShow=== 1
+                                           %}checked{% endif %}>
+                                    <label for="show">是否显示在主页</label>
+                                    <input type="hidden" id="isShow" name="isShow"
+                                           value="{% if product.isShow === 1 %}1{% else %}0{% endif %}">
                                 </div>
                             </div>
                             <div class="row uniform">
@@ -65,8 +78,8 @@
                             <div class="row uniform">
                                 <div class="12u$">
                                     <ul class="actions">
-                                        <li><input type="submit" value="修改产品" class="special"/></li>
-                                        <li><input type="reset" value="重置"/></li>
+                                        <li><input type="button" value="修改产品" class="special" id="submit"/></li>
+                                        <li><input type="reset" id="reset" value="重置"/></li>
                                     </ul>
                                 </div>
                             </div>
@@ -77,5 +90,7 @@
         </div>
     </div>
 </div>
-{% include "admin/sidebar.html" %}
+{% endblock %}
+{% block javascript %}
+<script src="/js/checkboxChange.js"></script>
 {% endblock %}

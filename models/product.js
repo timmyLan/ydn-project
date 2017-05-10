@@ -3,8 +3,8 @@
  */
 import Sequelize from 'sequelize';
 import sequelize from '../sequelize';
-const Main = sequelize.define(
-    'main',
+const Product = sequelize.define(
+    'product',
     {
         'name': {
             'type': Sequelize.STRING(64)
@@ -15,12 +15,12 @@ const Main = sequelize.define(
         'isShow': {
             'type': Sequelize.BOOLEAN
         },
-        'sortIntroduction': {
+        'tbUrl': {
             'type': Sequelize.STRING(64)
         },
-        'tbUrl': {
+        'sortIntroduction': {
             'type': Sequelize.STRING(64)
         }
     }
 );
-export default Main;
+export default Product;

@@ -3,9 +3,7 @@
  */
 import Sequelize from 'sequelize';
 import sequelize from '../sequelize';
-import Faddish from './faddish';
-import Main from './main';
-import Fresh from './fresh';
+import Product from './product';
 const Category = sequelize.define(
     'category',
     {
@@ -21,10 +19,6 @@ const Category = sequelize.define(
     }
 );
 //Relation
-Category.hasMany(Faddish);
-Category.hasMany(Faddish);
-Category.hasMany(Fresh);
-Faddish.belongsTo(Category);
-Fresh.belongsTo(Category);
-Main.belongsTo(Category);
+Category.hasMany(Product);
+Product.belongsTo(Category);
 export default Category;
