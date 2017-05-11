@@ -38,7 +38,7 @@
             <div class="mini-posts">
                 {% for main in main %}
                 <article>
-                    <a href="/product/{{ main.id }}" class="image"><img src="/images/pic07.jpg" alt=""/></a>
+                    <a href="/product/{{ main.id }}" class="image"><img src="{{ main.imgSrc }}" alt=""/></a>
                     <p>{{ main.sortIntroduction }}</p>
                 </article>
                 {% endfor %}

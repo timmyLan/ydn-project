@@ -18,11 +18,13 @@
                 $imgWarning.hide();
             } else {
                 $imgWarning.show();
+                return false;
             }
         }
         if (!$name.val()) {
             $nameWarning.show();
             $name.addClass('input-waring');
+            return false;
         } else {
             $nameWarning.hide();
             $name.removeClass('input-waring');

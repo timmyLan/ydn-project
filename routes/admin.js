@@ -6,7 +6,7 @@ const router = require('koa-router')();
 import path from 'path';
 import fs from 'fs';
 import multer from 'koa-multer';
-const upload = multer({dest:path.join(__dirname, '../assets/images')});
+const upload = multer({dest: path.join(__dirname, '../assets/images')});
 import Company from '../models/company';
 import {
     getCompany, getProperty, getProduct,
@@ -91,16 +91,16 @@ router.post('/editProduct/:id', upload.single('imgFile'), async(ctx)=> {
             const file = ctx.req.file;
             const originalname = file.originalname;
             const tmp_path = file.path;
-            const target_path = path.join(__dirname, '../../assets/images/', originalname);
+            const target_path = path.join(__dirname, '../assets/images/', originalname);
             const src = fs.createReadStream(tmp_path);
             const dest = fs.createWriteStream(target_path);
-            src.pipe(dest);
-            src.on('end', ()=> {
-                console.log('成功上传图片')
-            });
-            src.on('error', function () {
-                throw 'Error with upload image'
-            });
+            await src.pipe(dest);
+            console.log('成功上传图片');
+            await fs.unlink(tmp_path);
+            body = {
+                ...body,
+                imgSrc: `/images/${originalname}`
+            };
         }
         await editProduct(id, body);
         return ctx.body = {

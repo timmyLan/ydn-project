@@ -51,7 +51,7 @@
                 <div class="posts">
                     {% for faddish in faddish %}
                     <article>
-                        <a href="/product/{{ faddish.id }}" class="image"><img src="/images/pic01.jpg" alt=""/></a>
+                        <a href="/product/{{ faddish.id }}" class="image"><img src="{{ faddish.imgSrc }}" alt=""/></a>
                         <h3>{{ faddish.name }}</h3>
                         <p>{{ faddish.sortIntroduction }}</p>
                         <ul class="actions">
@@ -68,7 +68,7 @@
                 <div class="posts">
                     {% for fresh in fresh %}
                     <article>
-                        <a href="/product/{{ fresh.id }}" class="image"><img src="/images/pic05.jpg" alt=""/></a>
+                        <a href="/product/{{ fresh.id }}" class="image"><img src="{{ fresh.imgSrc }}" alt=""/></a>
                         <h3>{{fresh.name}}</h3>
                         <p>{{ fresh.sortIntroduction }}</p>
                         <ul class="actions">

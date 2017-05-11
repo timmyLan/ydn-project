@@ -20,6 +20,9 @@ const Product = sequelize.define(
         },
         'sortIntroduction': {
             'type': Sequelize.STRING(64)
+        },
+        'imgSrc':{
+            'type': Sequelize.STRING(64)
         }
     }
 );

@@ -11,6 +11,7 @@ module.exports = {
                 sortIntroduction: '爆款1简介',
                 property_id: '1',
                 category_id: '1',
+                imgSrc:'/images/pic01.jpg',
                 created_at: new Date(),
                 updated_at: new Date()
             }, {
@@ -20,6 +21,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 property_id: '1',
                 category_id: '2',
+                imgSrc:'/images/pic02.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -31,6 +33,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 property_id: '1',
                 category_id: '1',
+                imgSrc:'/images/pic03.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -42,6 +45,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 property_id: '1',
                 category_id: '4',
+                imgSrc:'/images/pic04.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -53,6 +57,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 property_id: '2',
                 category_id: '1',
+                imgSrc:'/images/pic05.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -63,6 +68,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 property_id: '2',
                 category_id: '2',
+                imgSrc:'/images/pic06.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -74,6 +80,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 property_id: '2',
                 category_id: '1',
+                imgSrc:'/images/pic07.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -85,6 +92,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 property_id: '2',
                 category_id: '4',
+                imgSrc:'/images/pic08.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -96,6 +104,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 category_id: '1',
                 property_id: '3',
+                imgSrc:'/images/pic09.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -106,6 +115,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 category_id: '2',
                 property_id: '3',
+                imgSrc:'/images/pic01.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -117,6 +127,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 category_id: '1',
                 property_id: '3',
+                imgSrc:'/images/pic02.jpg',
                 isShow: true,
                 created_at: new Date(),
                 updated_at: new Date()
@@ -128,6 +139,7 @@ module.exports = {
                 tbUrl: 'www.baidu.com',
                 category_id: '4',
                 property_id: '3',
+                imgSrc:'/images/pic03.jpg',
                 isShow: false,
                 created_at: new Date(),
                 updated_at: new Date()
