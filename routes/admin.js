@@ -16,7 +16,6 @@ import {
 router.get('/', async(ctx)=> {
     return ctx.render('admin/admin');
 });
-
 router.post('/company', async(ctx)=> {
     try {
         await Company.update(ctx.req.body, {
@@ -99,10 +98,9 @@ router.post('/editProduct/:id', upload.single('imgFile'), async(ctx)=> {
             src.on('end', ()=> {
                 console.log('成功上传图片')
             });
-            src.on('error', function (err) {
+            src.on('error', function () {
                 throw 'Error with upload image'
             });
-            console.log('file', ctx.req.file);
         }
         await editProduct(id, body);
         return ctx.body = {
@@ -111,6 +109,10 @@ router.post('/editProduct/:id', upload.single('imgFile'), async(ctx)=> {
         }
     } catch (err) {
         console.log('Error with editProduct', err);
+        return ctx.body = {
+            status: 400,
+            context: '修改产品相关信息失败'
+        }
     }
 });
 router.get('/editProduct/:id', upload.single('imgFile'), async(ctx)=> {

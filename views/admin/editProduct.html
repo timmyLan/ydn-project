@@ -13,7 +13,7 @@
                             <input type="hidden" value="{{ product.id }}" id="productId">
                             <div class="row uniform">
                                 <div class="6u 12u$(xsmall)">
-                                    <label for="name">产品名称 <span class="subWarning" id="nameWarning">注意:产品名称必须填写</span>
+                                    <label for="name">产品名称 <span class="sub-warning" id="nameWarning">注意:产品名称必须填写</span>
                                     </label>
                                     <input type="text" name="name" id="name" value="{{ product.name }}"
                                            placeholder="产品名称"/>
@@ -51,7 +51,7 @@
                                 <div class="6u 12u$(xsmall)">
                                     <label for="imgFile">上传图片</label>
                                     <input type="file" id="imgFile" name='imgFile' placeholder="选择上传图片"/>
-                                    <p class="subWarning" id="imgWarning">注意:只能上传图片类型</p>
+                                    <p class="sub-warning" id="imgWarning">注意:只能上传图片类型</p>
                                 </div>
                             </div>
                             <div class="row uniform">
@@ -92,5 +92,5 @@
 </div>
 {% endblock %}
 {% block javascript %}
-<script src="/js/checkboxChange.js"></script>
+<script src="/js/product.js"></script>
 {% endblock %}

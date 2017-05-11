@@ -4543,11 +4543,74 @@ button:disabled,
     padding-left: .1rem;
 }
 
-.icons .fa-phone{
-    color:#f56a6a
+.icons .fa-phone {
+    color: #f56a6a
 }
 
 .clearfix {
     overflow: auto;
     zoom: 1;
+}
+
+.sub-warning {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    display: none;
+}
+
+.input-waring {
+    border-color: #a94442 !important;
+}
+
+.info {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+    padding: 1rem 1rem 0 1rem;
+    width: 75%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: none;
+}
+
+.info-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.info-context {
+    display: inline-block;
+    line-height: 1.25em;
+}
+
+.info-danger > .info-context {
+    color: #a94442;
+}
+
+.info-success > .info-context {
+    color: #3c763d;
+}
+
+.info-close {
+    display: inline-block;
+    float: right;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.info-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
 }

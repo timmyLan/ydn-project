@@ -12,4 +12,5 @@ router.use('/company', company.routes());
 router.use('/', body.routes());
 router.use('/more', more.routes());
 router.use('/admin', admin.routes());
+
 export default router;
