@@ -39,9 +39,9 @@
                         $infoSuccess.find('.info-context').text(data.context);
                         $infoSuccess.show();
                     } else {
-                        var $infoWarning = $('.info-warning');
-                        $infoWarning.find('.info-context').text(data.context);
-                        $infoWarning.show();
+                        var $infoDanger = $('.info-danger');
+                        $infoDanger.find('.info-context').text(data.context);
+                        $infoDanger.show();
                     }
                 },
                 cache: false,
