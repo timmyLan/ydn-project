@@ -8,10 +8,11 @@
     });
     $('#submit').on('click', function (e) {
         e.preventDefault();
+        let uploadErrorMsg = '';
         var $nameWarning = $('#nameWarning'),
             $name = $('#name'),
             $imgWarning = $('.imgWarning'),
-            $files = $("input[name='imgFile']"),
+            $files = $("input[type='file']"),
             reg = new RegExp('^image/', 'i');
         $imgWarning.hide();
         $.each($files, function (key, value) {
@@ -20,10 +21,14 @@
                     $imgWarning.eq(key).hide();
                 } else {
                     $imgWarning.eq(key).show();
+                    uploadErrorMsg = 'file type is wrong!';
                     return false;
                 }
             }
         });
+        if (uploadErrorMsg) {
+            return false;
+        }
         if (!$name.val()) {
             $nameWarning.show();
             $name.addClass('input-waring');

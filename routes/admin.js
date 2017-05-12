@@ -29,6 +29,7 @@ router.post('/company', upload.fields([
                 ...imgInfo
             }
         }
+        console.log('body',body);
         await Company.update(body, {
             where: {
                 id: 1
@@ -36,10 +37,14 @@ router.post('/company', upload.fields([
         });
         return ctx.body = {
             status: 200,
-            info: '成功修改公司相关信息'
+            context: '成功修改公司相关信息'
         }
     } catch (err) {
         console.log('Error with edit company', err);
+        return ctx.body = {
+            status: 400,
+            context: '修改公司相关信息失败'
+        }
     }
 });
 

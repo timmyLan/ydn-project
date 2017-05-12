@@ -9,32 +9,40 @@
             <section id="banner">
                 <div class="content">
                     <div class="row 200%">
-                        <form method="post" action="/admin/company">
+                        <form method="post" id="editCompanyForm" enctype="multipart/form-data">
                             <div class="row uniform">
                                 <div class="6u 12u$(xsmall)">
                                     <label for="name">公司名称</label>
-                                    <input type="text" name="name" id="name" value="{{ company.name }}" placeholder="公司名称"/>
+                                    <input type="text" name="name" id="name" value="{{ company.name }}"
+                                           placeholder="公司名称"/>
                                 </div>
                                 <div class="6u$ 12u$(xsmall)">
                                     <label for="address">公司地址</label>
-                                    <input type="text" name="address" id="address" value="{{ company.address }}" placeholder="公司地址"/>
+                                    <input type="text" name="address" id="address" value="{{ company.address }}"
+                                           placeholder="公司地址"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
                                     <label for="tbUrl">淘宝地址</label>
-                                    <input type="text" name="tbUrl" id="tbUrl" value="{{ company.tbUrl }}" placeholder="淘宝地址"/>
+                                    <input type="text" name="tbUrl" id="tbUrl" value="{{ company.tbUrl }}"
+                                           placeholder="淘宝地址"/>
                                 </div>
                                 <div class="6u$ 12u$(xsmall)">
                                     <label for="phone">公司电话</label>
-                                    <input type="text" name="phone" id="phone" value="{{ company.phone }}" placeholder="公司电话"/>
+                                    <input type="text" name="phone" id="phone" value="{{ company.phone }}"
+                                           placeholder="公司电话"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
                                     <label for="email">公司邮箱</label>
-                                    <input type="email" name="email" id="email" value="{{ company.email }}" placeholder="公司邮箱"/>
+                                    <input type="email" name="email" id="email" value="{{ company.email }}"
+                                           placeholder="公司邮箱"/>
                                 </div>
                                 <div class="6u$ 12u$(xsmall)">
                                     <label for="copyright">注册商标</label>
-                                    <input type="text" name="copyright" id="copyright" value="{{ company.copyright }}" placeholder="注册商标"/>
+                                    <input type="text" name="copyright" id="copyright" value="{{ company.copyright }}"
+                                           placeholder="注册商标"/>
                                 </div>
+                            </div>
+                            <div class="row uniform">
                                 <div class="6u 12u$(xsmall)">
                                     <label for="companyMainSrc">首页公司展示图片</label>
                                     <p class="sub-info">为保证首页公司展示图片美观,建议上传416 × 256的图片</p>
@@ -47,17 +55,21 @@
                                     <input type="file" id="companySrc" name='companySrc'/>
                                     <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
                                 </div>
+                            </div>
+                            <div class="row uniform">
                                 <div class="6u 12u$(xsmall)">
                                     <label for="sortIntroduction">公司简介</label>
                                     <textarea name="sortIntroduction" id="sortIntroduction" rows="6" placeholder="公司简介">{{ company.sortIntroduction }}</textarea>
                                 </div>
                                 <div class="6u$ 12u$(xsmall)">
                                     <label for="introduction">公司介绍</label>
-                                    <textarea name="introduction" id="introduction" rows="6" placeholder="公司介绍"></textarea>
+                                    <textarea name="introduction" id="introduction" rows="6"
+                                              placeholder="公司介绍"></textarea>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
                                     <label for="power">实力展示</label>
-                                    <textarea name="power" id="power" rows="6" placeholder="实力展示">{{ company.power }}</textarea>
+                                    <textarea name="power" id="power" rows="6"
+                                              placeholder="实力展示">{{ company.power }}</textarea>
                                 </div>
                                 <div class="6u$ 12u$(xsmall)">
                                     <label for="culture">公司文化</label>
@@ -65,13 +77,14 @@
                                 </div>
                                 <div class="6u 12u$(xsmall)">
                                     <label for="staff">员工氛围</label>
-                                    <textarea name="staff" id="staff" rows="6" placeholder="员工氛围">{{ company.staff }}</textarea>
+                                    <textarea name="staff" id="staff" rows="6"
+                                              placeholder="员工氛围">{{ company.staff }}</textarea>
                                 </div>
                             </div>
                             <div class="row uniform">
                                 <div class="12u$">
                                     <ul class="actions">
-                                        <li><input type="submit" value="更改资料" class="special"/></li>
+                                        <li><input type="button" id="submit" value="更改资料" class="special"/></li>
                                         <li><input type="reset" value="重置"/></li>
                                     </ul>
                                 </div>
@@ -84,4 +97,6 @@
     </div>
 </div>
 {% endblock %}
-
+{% block javascript %}
+<script src="/js/company.js"></script>
+{% endblock %}

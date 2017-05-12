@@ -204,7 +204,6 @@ const fileOperation = async(files)=> {
     }
     return info;
 };
-
 export {
     getBaseInfo, getCategory, getMore,
     getMoreCategory, getCompany, getProperty,
