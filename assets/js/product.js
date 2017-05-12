@@ -10,17 +10,20 @@
         e.preventDefault();
         var $nameWarning = $('#nameWarning'),
             $name = $('#name'),
-            $imgWarning = $('#imgWarning'),
-            file = $('#imgFile')[0].files[0],
+            $imgWarning = $('.imgWarning'),
+            $files = $("input[name='imgFile']"),
             reg = new RegExp('^image/', 'i');
-        if (file) {
-            if (reg.test(file.type)) {
-                $imgWarning.hide();
-            } else {
-                $imgWarning.show();
-                return false;
+        $imgWarning.hide();
+        $.each($files, function (key, value) {
+            if (value.files[0]) {
+                if (reg.test(value.files[0].type)) {
+                    $imgWarning.eq(key).hide();
+                } else {
+                    $imgWarning.eq(key).show();
+                    return false;
+                }
             }
-        }
+        });
         if (!$name.val()) {
             $nameWarning.show();
             $name.addClass('input-waring');
@@ -28,10 +31,20 @@
         } else {
             $nameWarning.hide();
             $name.removeClass('input-waring');
-            var formData = new FormData($('#editProductForm')[0]);
             var id = $('#productId').val();
+            var formData,
+                actionUrl;
+            if (!id) {
+                //添加产品
+                formData = new FormData($('#addProductForm')[0]);
+                actionUrl = '/admin/addProduct';
+            } else {
+                //修改产品
+                formData = new FormData($('#editProductForm')[0]);
+                actionUrl = `/admin/editProduct/${id}`;
+            }
             $.ajax({
-                url: `/admin/editProduct/${id}`,
+                url: actionUrl,
                 type: 'POST',
                 data: formData,
                 async: false,

@@ -4,21 +4,32 @@
 
 const router = require('koa-router')();
 import path from 'path';
-import fs from 'fs';
 import multer from 'koa-multer';
 const upload = multer({dest: path.join(__dirname, '../assets/images')});
 import Company from '../models/company';
 import {
     getCompany, getProperty, getProduct,
     getCategory, editProduct, getAllProduct,
-    getProductByOption, countPerPage
+    getProductByOption, createProduct, fileOperation, countPerPage
 } from './common';
 router.get('/', async(ctx)=> {
     return ctx.render('admin/admin');
 });
-router.post('/company', async(ctx)=> {
+router.post('/company', upload.fields([
+    {name: 'companySrc', maxCount: 1},
+    {name: 'companyMainSrc', maxCount: 1}
+]), async(ctx)=> {
     try {
-        await Company.update(ctx.req.body, {
+        let body = ctx.req.body;
+        if (ctx.req.files) {
+            let files = ctx.req.files;
+            let imgInfo = await fileOperation(files);
+            body = {
+                ...body,
+                ...imgInfo
+            }
+        }
+        await Company.update(body, {
             where: {
                 id: 1
             }
@@ -82,25 +93,51 @@ router.get('/addProduct', async(ctx)=> {
     };
     return ctx.render('admin/addProduct', context);
 });
+
+router.post('/addProduct', upload.fields([
+    {name: 'imgMainSrc', maxCount: 1},
+    {name: 'imgFirstSrc', maxCount: 1},
+    {name: 'imgSecondSrc', maxCount: 1},
+    {name: 'imgThirdSrc', maxCount: 1},
+    {name: 'imgFourthSrc', maxCount: 1}
+]), async(ctx)=> {
+    try {
+        let body = ctx.req.body;
+        if (ctx.req.files) {
+            let files = ctx.req.files;
+            let imgInfo = await fileOperation(files);
+            body = {
+                ...body,
+                ...imgInfo
+            }
+        }
+        console.log('body', body);
+        await createProduct(body);
+        return ctx.body = {
+            status: 200,
+            context: '成功添加产品'
+        };
+    } catch (err) {
+        console.log('Error with addProduct', err);
+        return ctx.body = {
+            status: 400,
+            context: '添加产品失败'
+        }
+    }
+});
+
 router.post('/editProduct/:id', upload.single('imgFile'), async(ctx)=> {
     try {
         let params = ctx.params,
             id = params.id;
         let body = ctx.req.body;
         if (ctx.req.file) {
-            const file = ctx.req.file;
-            const originalname = file.originalname;
-            const tmp_path = file.path;
-            const target_path = path.join(__dirname, '../assets/images/', originalname);
-            const src = fs.createReadStream(tmp_path);
-            const dest = fs.createWriteStream(target_path);
-            await src.pipe(dest);
-            console.log('成功上传图片');
-            await fs.unlink(tmp_path);
+            let files = ctx.req.files;
+            let imgInfo = await fileOperation(files);
             body = {
                 ...body,
-                imgSrc: `/images/${originalname}`
-            };
+                ...imgInfo
+            }
         }
         await editProduct(id, body);
         return ctx.body = {
@@ -129,16 +166,5 @@ router.get('/editProduct/:id', upload.single('imgFile'), async(ctx)=> {
         ...categories
     };
     return ctx.render('admin/editProduct', context);
-});
-router.post('/isShow', async(ctx)=> {
-    let body = ctx.request.body,
-        property_id = body.property_id;
-    let result = Product.findAndCountAll({
-        where: {
-            property_id: property_id
-        },
-        raw: true
-    });
-    return ctx.body = result.count;
 });
 module.exports = router;

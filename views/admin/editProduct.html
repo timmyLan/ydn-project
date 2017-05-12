@@ -15,8 +15,7 @@
                                 <div class="6u 12u$(xsmall)">
                                     <label for="name">产品名称 <span class="sub-warning" id="nameWarning">注意:产品名称必须填写</span>
                                     </label>
-                                    <input type="text" name="name" id="name" value="{{ product.name }}"
-                                           placeholder="产品名称"/>
+                                    <input type="text" name="name" id="name" value="{{ product.name }}"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
                                     <label for="property">所属分类</label>
@@ -45,13 +44,41 @@
                                 </div>
                                 <div class="6u 12u$(xsmall)">
                                     <label for="tbUrl">淘宝地址</label>
-                                    <input type="text" name="tbUrl" id="tbUrl" value="{{ product.tbUrl }}"
-                                           placeholder="淘宝地址"/>
+                                    <input type="text" name="tbUrl" id="tbUrl" value="{{ product.tbUrl }}"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
-                                    <label for="imgFile">上传图片</label>
-                                    <input type="file" id="imgFile" name='imgFile' placeholder="选择上传图片"/>
-                                    <p class="sub-warning" id="imgWarning">注意:只能上传图片类型</p>
+                                    <label for="imgMainSrc">上传主图片</label>
+                                    <p class="sub-info">为保证主图片美观,建议上传1280 × 416的图片</p>
+                                    <input type="file" id="imgMainSrc" name='imgMainSrc'/>
+                                    <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                </div>
+                                <div style="width: 100%">
+                                    <label>详情页图片上传</label>
+                                    <p class="sub-info">为保证详情页图片整齐,建议上传416 × 256的图片</p>
+                                </div>
+                                <div class="row">
+                                    <div class="6u 12u$(xsmall)">
+                                        <label for="imgFirstSrc">上传详情页第一张图片</label>
+                                        <input type="file" id="imgFirstSrc" name='imgFirstSrc'/>
+                                        <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                    </div>
+                                    <div class="6u 12u$(xsmall)">
+                                        <label for="imgSecondSrc">上传详情页第二张图片</label>
+                                        <input type="file" id="imgSecondSrc" name='imgSecondSrc'/>
+                                        <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="6u 12u$(xsmall)">
+                                        <label for="imgThirdSrc">上传详情页第三张图片</label>
+                                        <input type="file" id="imgThirdSrc" name='imgThirdSrc'/>
+                                        <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                    </div>
+                                    <div class="6u 12u$(xsmall)">
+                                        <label for="imgFourthSrc">上传详情页第四张图片</label>
+                                        <input type="file" id="imgFourthSrc" name='imgFourthSrc'/>
+                                        <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row uniform">
@@ -60,19 +87,34 @@
                                            %}checked{% endif %}>
                                     <label for="show">是否显示在主页</label>
                                     <input type="hidden" id="isShow" name="isShow"
-                                           value="{% if product.isShow === 1 %}1{% else %}0{% endif %}">
+                                           value="{% if product.isShow === 1 %}1{% else %}0{% endif %}"/>
                                 </div>
                             </div>
                             <div class="row uniform">
                                 <div class="6u 12u$(xsmall)">
+                                    <label for="imgFirstIntroduction">详情页图片1介绍</label>
+                                    <textarea name="imgFirstIntroduction" id="imgFirstIntroduction" rows="6">{{ product.imgFirstIntroduction }}</textarea>
+                                </div>
+                                <div class="6u$ 12u$(xsmall)">
+                                    <label for="imgSecondIntroduction">详情页图片2介绍</label>
+                                    <textarea name="imgSecondIntroduction" id="imgSecondIntroduction" rows="6">{{ product.imgSecondIntroduction }}</textarea>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="imgThirdIntroduction">详情页图片3介绍</label>
+                                    <textarea name="imgThirdIntroduction" id="imgThirdIntroduction" rows="6">{{ product.imgThirdIntroduction }}</textarea>
+                                </div>
+                                <div class="6u$ 12u$(xsmall)">
+                                    <label for="imgFourthIntroduction">详情页图片4介绍</label>
+                                    <textarea name="imgFourthIntroduction" id="imgFourthIntroduction" rows="6">{{ product.imgFourthIntroduction }}</textarea>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
                                     <label for="sortIntroduction">产品简介</label>
-                                    <textarea name="sortIntroduction" id="sortIntroduction" rows="6"
-                                              placeholder="产品简介">{{ product.sortIntroduction }}</textarea>
+                                    <textarea name="sortIntroduction" id="sortIntroduction" rows="6">{{ product.sortIntroduction }}</textarea>
                                 </div>
                                 <div class="6u$ 12u$(xsmall)">
                                     <label for="introduction">产品介绍</label>
-                                    <textarea name="introduction" id="introduction" rows="6"
-                                              placeholder="产品介绍">{{ product.introduction }}</textarea>
+                                    <textarea name="introduction" id="introduction"
+                                              rows="6">{{ product.introduction }}</textarea>
                                 </div>
                             </div>
                             <div class="row uniform">

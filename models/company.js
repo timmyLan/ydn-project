@@ -38,6 +38,12 @@ const Company = sequelize.define(
         },
         'staff':{
             'type': Sequelize.STRING(64)
+        },
+        'companySrc':{
+            'type': Sequelize.STRING(64)
+        },
+        'companyMainSrc':{
+            'type': Sequelize.STRING(64)
         }
     }
 );

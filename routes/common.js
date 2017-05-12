@@ -6,6 +6,8 @@ import Product from '../models/product';
 import Company from '../models/company';
 import Category from '../models/category';
 import Property from '../models/property';
+import fs from 'fs';
+import path from 'path';
 const countPerPage = 10;
 const currentPage = 1;
 const paging = {
@@ -171,17 +173,42 @@ const editProduct = async(id, body)=> {
             }
         });
     } catch (err) {
-        console.log('Error with getMore', err);
+        console.log('Error with editProduct', err);
     }
 };
-const isEmptyObject = (obj)=> {
-    return Object.keys(obj).length === 0;
+const createProduct = async(body)=> {
+    try {
+        return await Product.create(body);
+    } catch (err) {
+        console.log('Error with createProduct', err);
+    }
+};
+const fileOperation = async(files)=> {
+    let info = {};
+    for (let key in files) {
+        let imgInfo = {};
+        const file = files[key][0],
+            originalname = file.originalname,
+            fieldname = file.fieldname,
+            tmp_path = file.path,
+            target_path = path.join(__dirname, '../assets/images/', originalname),
+            src = fs.createReadStream(tmp_path),
+            dest = fs.createWriteStream(target_path);
+        await src.pipe(dest);
+        await fs.unlink(tmp_path);
+        imgInfo[`${fieldname}`] = `/images/${originalname}`;
+        info = {
+            ...info,
+            ...imgInfo
+        }
+    }
+    return info;
 };
 
 export {
     getBaseInfo, getCategory, getMore,
     getMoreCategory, getCompany, getProperty,
     getProduct, editProduct, getAllProduct,
-    getProductByOption, isEmptyObject, countPerPage
+    getProductByOption, createProduct, fileOperation, countPerPage
 };
 

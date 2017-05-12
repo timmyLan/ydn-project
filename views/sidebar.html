@@ -38,7 +38,7 @@
             <div class="mini-posts">
                 {% for main in main %}
                 <article>
-                    <a href="/product/{{ main.id }}" class="image"><img src="{{ main.imgSrc }}" alt=""/></a>
+                    <a href="/product/{{ main.id }}" class="image"><img src="{{ main.imgFirstSrc }}" alt=""/></a>
                     <p>{{ main.sortIntroduction }}</p>
                 </article>
                 {% endfor %}
@@ -47,7 +47,6 @@
                 <li><a href="/more/3" class="button">了解更多</a></li>
             </ul>
         </section>
-
         <!-- Section -->
         <section>
             <header class="major">

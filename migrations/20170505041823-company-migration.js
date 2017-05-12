@@ -15,6 +15,8 @@ module.exports = {
                 culture: '公司文化',
                 staff: '公司员工氛围',
                 sortIntroduction: '公司简介',
+                companyMainSrc: '/images/pic01.jpg',
+                companySrc: '/images/pic11.jpg',
                 created_at: new Date(),
                 updated_at: new Date()
             }

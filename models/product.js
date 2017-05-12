@@ -3,6 +3,7 @@
  */
 import Sequelize from 'sequelize';
 import sequelize from '../sequelize';
+
 const Product = sequelize.define(
     'product',
     {
@@ -21,7 +22,31 @@ const Product = sequelize.define(
         'sortIntroduction': {
             'type': Sequelize.STRING(64)
         },
-        'imgSrc':{
+        'imgMainSrc': {
+            'type': Sequelize.STRING(64)
+        },
+        'imgFirstSrc': {
+            'type': Sequelize.STRING(64)
+        },
+        'imgSecondSrc': {
+            'type': Sequelize.STRING(64)
+        },
+        'imgThirdSrc': {
+            'type': Sequelize.STRING(64)
+        },
+        'imgFourthSrc': {
+            'type': Sequelize.STRING(64)
+        },
+        'imgFirstIntroduction': {
+            'type': Sequelize.STRING(64)
+        },
+        'imgSecondIntroduction': {
+            'type': Sequelize.STRING(64)
+        },
+        'imgThirdIntroduction': {
+            'type': Sequelize.STRING(64)
+        },
+        'imgFourthIntroduction': {
             'type': Sequelize.STRING(64)
         }
     }

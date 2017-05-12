@@ -36,6 +36,18 @@
                                     <input type="text" name="copyright" id="copyright" value="{{ company.copyright }}" placeholder="注册商标"/>
                                 </div>
                                 <div class="6u 12u$(xsmall)">
+                                    <label for="companyMainSrc">首页公司展示图片</label>
+                                    <p class="sub-info">为保证首页公司展示图片美观,建议上传416 × 256的图片</p>
+                                    <input type="file" id="companyMainSrc" name='companyMainSrc'/>
+                                    <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="companySrc">公司页展示图片</label>
+                                    <p class="sub-info">为保证公司页图片美观,建议上传1280 × 416的图片</p>
+                                    <input type="file" id="companySrc" name='companySrc'/>
+                                    <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
                                     <label for="sortIntroduction">公司简介</label>
                                     <textarea name="sortIntroduction" id="sortIntroduction" rows="6" placeholder="公司简介">{{ company.sortIntroduction }}</textarea>
                                 </div>
