@@ -8,6 +8,7 @@ import multer from 'koa-multer';
 const upload = multer({dest: path.join(__dirname, '../assets/images')});
 import Company from '../models/company';
 import User from '../models/user';
+import Body from '../models/body';
 import {
     getCompany, getProperty, getProduct,
     getCategory, editProduct, getAllProduct,
@@ -71,6 +72,40 @@ router.post('/user', async(ctx, next)=> {
         return ctx.body = {
             status: 400,
             info: '修改用户信息失败'
+        }
+    }
+});
+
+router.post('/body', upload.fields([
+    {name: 'firstActivitySrc', maxCount: 1},
+    {name: 'secondActivitySrc', maxCount: 1},
+    {name: 'thirdActivitySrc', maxCount: 1}
+]), async(ctx, next)=> {
+    try {
+        await checkSession(ctx, next);
+        let body = ctx.req.body;
+        if (ctx.req.files) {
+            let files = ctx.req.files;
+            let imgInfo = await fileOperation(files);
+            body = {
+                ...body,
+                ...imgInfo
+            }
+        }
+        await Body.update(body, {
+            where: {
+                id: 1
+            }
+        });
+        return ctx.body = {
+            status: 200,
+            context: '修改主页相关信息成功'
+        }
+    } catch (err) {
+        console.log('Error with edit body', err);
+        return ctx.body = {
+            status: 400,
+            context: '修改主页相关信息失败'
         }
     }
 });
