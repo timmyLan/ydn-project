@@ -14,13 +14,25 @@
             <section class="slider-pro" id="my-slider">
                 <div class="sp-slides">
                     <div class="sp-slide">
-                        <a target="_blank" href="https://www.taobao.com"><img class="sp-image" src="/images/pic01.jpg"/></a>
+                        <a target="_blank" href="{{ body.firstActivityTbSrc }}">
+                            <img class="sp-image" src="{{ body.firstActivitySrc }}"
+                                 data-src="{{ body.firstActivitySrc }}"
+                                 data-retina="{{ body.firstActivitySrc }}"/>
+                        </a>
                     </div>
                     <div class="sp-slide">
-                        <img class="sp-image" src="/images/pic02.jpg"/>
+                        <a target="_blank" href="{{ body.secondActivityTbSrc }}">
+                            <img class="sp-image" src="{{ body.secondActivitySrc }}"
+                                 data-src="{{ body.secondActivitySrc }}"
+                                 data-retina="{{ body.secondActivitySrc }}"/>
+                        </a>
                     </div>
                     <div class="sp-slide">
-                        <img class="sp-image" src="/images/pic03.jpg"/>
+                        <a target="_blank" href="{{ body.thirdActivityTbSrc }}">
+                            <img class="sp-image" src="{{ body.thirdActivitySrc }}"
+                                 data-src="{{ body.thirdActivitySrc }}"
+                                 data-retina="{{ body.thirdActivitySrc }}"/>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -62,7 +74,7 @@
             <!-- Section -->
             <section>
                 <header class="major">
-                    <h2>爆款标题</h2>
+                    <h2>{{ body.faddishName }}</h2>
                 </header>
                 <div class="posts">
                     {% for faddish in faddish %}
@@ -79,7 +91,7 @@
             </section>
             <section>
                 <header class="major">
-                    <h2>上新标题</h2>
+                    <h2>{{ body.freshName }}</h2>
                 </header>
                 <div class="posts">
                     {% for fresh in fresh %}

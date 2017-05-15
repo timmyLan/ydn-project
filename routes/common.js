@@ -4,6 +4,7 @@
 
 import Product from '../models/product';
 import Company from '../models/company';
+import Body from '../models/body';
 import Category from '../models/category';
 import Property from '../models/property';
 import fs from 'fs';
@@ -61,6 +62,18 @@ const getCompany = async()=> {
         console.log('Error with getCompany', err);
     }
 };
+const getBody = async()=> {
+    try {
+        let bodyResult = await Body.findAll({
+            raw: true
+        });
+        return {
+            body: bodyResult[0]
+        }
+    } catch (err) {
+        console.log('Error with getBody', err);
+    }
+};
 const getProperty = async()=> {
     try {
         let propertyResult = await Property.findAll({
@@ -76,9 +89,11 @@ const getProperty = async()=> {
 const getBaseInfo = async()=> {
     let sideBarResult = await getSidebar();
     let company = await getCompany();
+    let body = await getBody();
     return {
         ...sideBarResult,
-        ...company
+        ...company,
+        ...body
     }
 };
 const getCategory = async()=> {
@@ -215,5 +230,5 @@ export {
     getBaseInfo, getCategory, getMore,
     getMoreCategory, getCompany, getProperty,
     getProduct, editProduct, getAllProduct,
-    getProductByOption, createProduct, fileOperation, changePassword, countPerPage
+    getProductByOption, createProduct, fileOperation, changePassword, getBody, countPerPage
 };

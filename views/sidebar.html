@@ -10,7 +10,7 @@
                 <li><a href="/">主页</a></li>
                 <li><a href="/company">公司</a></li>
                 <li>
-                    <span class="opener">爆款标题</span>
+                    <span class="opener">{{ body.faddishName }}</span>
                     <ul>
                         {% for faddish in faddish %}
                         <li><a href="/product/{{ faddish.id }}">{{ faddish.name }}</a></li>
@@ -19,7 +19,7 @@
                     </ul>
                 </li>
                 <li>
-                    <span class="opener">上新标题</span>
+                    <span class="opener">{{ body.freshName }}</span>
                     <ul>
                         {% for fresh in fresh %}
                         <li><a href="/product/{{ fresh.id }}">{{ fresh.name }}</a></li>
@@ -33,7 +33,7 @@
         <!-- Section -->
         <section>
             <header class="major">
-                <h2>主推标题</h2>
+                <h2>{{ body.mainName }}</h2>
             </header>
             <div class="mini-posts">
                 {% for main in main %}

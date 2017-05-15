@@ -7,12 +7,11 @@ import path from 'path';
 import multer from 'koa-multer';
 const upload = multer({dest: path.join(__dirname, '../assets/images')});
 import Company from '../models/company';
-
 import User from '../models/user';
 import {
     getCompany, getProperty, getProduct,
     getCategory, editProduct, getAllProduct,
-    getProductByOption, createProduct, fileOperation, changePassword, countPerPage
+    getProductByOption, createProduct, fileOperation, changePassword, getBody, countPerPage
 } from './common';
 const checkSession = async(ctx, next)=> {
     if (ctx.session.login != 'passLogin') {
@@ -25,6 +24,7 @@ router.get('/', async(ctx, next)=> {
     await checkSession(ctx, next);
     return ctx.render('admin/admin');
 });
+
 router.post('/user', async(ctx, next)=> {
     try {
         await checkSession(ctx, next);
@@ -112,6 +112,12 @@ router.get('/company', async(ctx, next)=> {
     await checkSession(ctx, next);
     let context = await getCompany();
     return ctx.render('admin/company', context);
+});
+
+router.get('/body', async(ctx, next)=> {
+    await checkSession(ctx, next);
+    let context = await getBody();
+    return ctx.render('admin/body', context);
 });
 
 router.all('/searchProduct/:currentPage', async(ctx, next)=> {

@@ -1,0 +1,85 @@
+{% extends "./adminLayout.html" %}
+{% block body %}
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Header -->
+            {% include "header.html" %}
+            <section id="banner">
+                <div class="content">
+                    <div class="row 200%">
+                        <form method="post" id="editBodyForm" enctype="multipart/form-data" style="width: 100%">
+                            <div class="row uniform">
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="faddishName">爆款标题</label>
+                                    <input type="text" name="faddishName" id="faddishName"
+                                           value="{{ body.faddishName }}"/>
+                                </div>
+                                <div class="6u$ 12u$(xsmall)">
+                                    <label for="freshName">上新标题</label>
+                                    <input type="text" name="freshName" id="freshName" value="{{ body.freshName }}"/>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="mainName">主推标题</label>
+                                    <input type="text" name="mainName" id="mainName" value="{{ body.mainName }}"/>
+                                </div>
+                            </div>
+                            <div class="row uniform">
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="firstActivitySrc">公司活动图片一</label>
+                                    <p class="sub-info">为保证公司页图片美观,建议上传1280 × 416的图片</p>
+                                    <input type="file" id="firstActivitySrc" name='firstActivitySrc'/>
+                                    <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="secondActivitySrc">公司活动图片二</label>
+                                    <p class="sub-info">为保证公司页图片美观,建议上传1280 × 416的图片</p>
+                                    <input type="file" id="secondActivitySrc" name='secondActivitySrc'/>
+                                    <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                </div>
+                            </div>
+                            <div class="row uniform">
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="thirdActivitySrc">公司活动图片三</label>
+                                    <p class="sub-info">为保证公司页图片美观,建议上传1280 × 416的图片</p>
+                                    <input type="file" id="thirdActivitySrc" name='thirdActivitySrc'/>
+                                    <p class="sub-warning imgWarning">注意:只能上传图片类型</p>
+                                </div>
+                            </div>
+                            <div class="row uniform">
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="firstActivityTbSrc">公司活动淘宝地址一</label>
+                                    <input type="text" name="firstActivityTbSrc" id="firstActivityTbSrc"
+                                           value="{{ body.firstActivityTbSrc }}"/>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="secondActivityTbSrc">公司活动淘宝地址二</label>
+                                    <input type="text" name="secondActivityTbSrc" id="secondActivityTbSrc"
+                                           value="{{ body.secondActivityTbSrc }}"/>
+                                </div>
+                                <div class="6u 12u$(xsmall)">
+                                    <label for="thirdActivityTbSrc">公司活动淘宝地址三</label>
+                                    <input type="text" name="thirdActivityTbSrc" id="thirdActivityTbSrc"
+                                           value="{{ body.thirdActivityTbSrc }}"/>
+                                </div>
+                            </div>
+                            <div class="row uniform">
+                                <div class="12u$">
+                                    <ul class="actions">
+                                        <li><input type="button" id="submit" value="更改资料" class="special"/></li>
+                                        <li><input type="reset" value="重置"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+<script src="/js/company.js"></script>
+{% endblock %}
