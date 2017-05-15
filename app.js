@@ -5,9 +5,13 @@ const json = require('koa-json');
 const bodyParser = require('koa-bodyparser');
 const fs = require('fs');
 const views = require('koa-nunjucks-promise');
+const session = require('koa-session');
 import sequelize from './sequelize';
 import router from './routes';
+//app keys
+app.keys = ['mypasswordchangeyourpassword'];
 //middleware
+app.use(session(app));
 app.use(require('koa-static')(__dirname + '/assets'));
 app.use(views(path.join(__dirname, '/views')), {
     ext: 'html',
@@ -17,7 +21,6 @@ app.use(bodyParser());
 app.use(json());
 //routes
 app.use(router.routes());
-
 //connect mysql
 sequelize.sync(
     // {

@@ -31,6 +31,7 @@
             data: formData,
             async: false,
             success: function (data) {
+                $('.info').hide();
                 if (data.status == 200) {
                     var $infoSuccess = $('.info-success');
                     $infoSuccess.find('.info-context').text(data.context);

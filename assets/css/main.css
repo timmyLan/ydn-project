@@ -4548,7 +4548,7 @@ button:disabled,
 }
 
 .clearfix {
-    overflow: auto;
+    overflow: hidden;
     zoom: 1;
 }
 
@@ -4577,7 +4577,7 @@ button:disabled,
     margin-left: auto;
     margin-right: auto;
     z-index: 2;
-    padding: 1rem 1rem 0 1rem;
+    padding: .5rem .5rem 0 .5rem;
     width: 75%;
     position: absolute;
     top: 0;
@@ -4621,3 +4621,41 @@ button:disabled,
     white-space: nowrap;
     overflow: hidden;
 }
+
+.login-form {
+    width: 75%;
+    position: absolute;
+    margin: auto;
+    top: 30%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    opacity: .8;
+}
+
+.login-body {
+    background-image: linear-gradient(rgba(23, 22, 23, 0.8), rgba(23, 22, 23, 0.8)), url('../images/pic11.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position-x: 60%;
+}
+
+.login-body:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom right, #002f4b, #c0c750);
+    opacity: .6;
+    z-index: 1;
+}
+
+.banner { position: relative; overflow: auto; }
+.banner li { list-style: none; }
+.banner ul li { float: left; }

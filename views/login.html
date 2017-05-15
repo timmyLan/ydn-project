@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <title>纯银时代管理登录</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <!--[if lte IE 8]>
+    <script src=" /js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href=" /css/main.css"/>
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href=" /css/ie9.css"/><![endif]-->
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href=" /css/ie8.css"/><![endif]-->
+    <!--font-->
+    <link rel="stylesheet" type="text/css" href="/css/iconfont.css">
+</head>
+<body>
+<div class="login-body">
+    <form id="loginForm" class="login-form" method="post" action="/login">
+        <h1 style="margin-bottom: 4rem; color: #ccc;;">纯银时代后台管理登录</h1>
+        <div class="row uniform" style="padding-left: 1rem;">
+            <div class="8u">
+                <label for="name">用户名 <span class="sub-warning" id="nameWarning">注意:用户名必须填写</span></label>
+                <input type="text" name="name" id="name"/>
+            </div>
+            <div class="8u">
+                <label for="password">密码 <span class="sub-warning" id="passwordWarning">注意:密码必须填写</span></label>
+                <input type="password" id="password"/>
+                <input type="hidden" name="password" id="changePassword">
+            </div>
+            <div class="8u$">
+                <ul class="actions">
+                    <li><input type="submit" id="submit" value="登录" class="special"/></li>
+                    <li><a href="/" class="button">返回主页</a></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+{% include "admin/info.html" %}
+<!-- Scripts -->
+<script src=" /js/jquery.min.js"></script>
+<script src=" /js/skel.min.js"></script>
+<script src=" /js/util.js"></script>
+<!--[if lte IE 8]>
+<script src=" /js/ie/respond.min.js"></script><![endif]-->
+<script src=" /js/main.js"></script>
+<script src="/js/user.js"></script>
+<script src="/js/info.js"></script>
+<script src="/js/md5.min.js"></script>
+</body>
+</html>

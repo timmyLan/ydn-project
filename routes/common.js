@@ -8,6 +8,9 @@ import Category from '../models/category';
 import Property from '../models/property';
 import fs from 'fs';
 import path from 'path';
+const md5 = require('blueimp-md5');
+const salt = 'yourPassword';
+const fontKey = 'myPassword';
 const countPerPage = 10;
 const currentPage = 1;
 const paging = {
@@ -204,10 +207,13 @@ const fileOperation = async(files)=> {
     }
     return info;
 };
+const changePassword = (password)=> {
+    return md5(md5(password, fontKey, true), salt);
+};
+
 export {
     getBaseInfo, getCategory, getMore,
     getMoreCategory, getCompany, getProperty,
     getProduct, editProduct, getAllProduct,
-    getProductByOption, createProduct, fileOperation, countPerPage
+    getProductByOption, createProduct, fileOperation, changePassword, countPerPage
 };
-

@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
+{% block style %}
+<link rel="stylesheet" href="/css/unslider.css">
+{% endblock %}
 {% block body %}
 <!-- Wrapper -->
 <div id="wrapper">
@@ -7,6 +10,13 @@
         <div class="inner">
             <!-- Header -->
             {% include "header.html" %}
+            <div class="banner">
+                <ul>
+                    <li>My slide</li>
+                    <li>Another slide</li>
+                    <li>My last slide</li>
+                </ul>
+            </div>
             <!-- Banner -->
             <section id="banner">
                 <div class="content">
@@ -23,7 +33,6 @@
                     <img src="{{ company.companyMainSrc }}" alt=""/>
                 </span>
             </section>
-
             <!-- Section -->
             <section>
                 <header class="major">
@@ -81,4 +90,8 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block javascript %}
+<script src="/js/unslider-min.js"></script>
+<script src="/js/body.js"></script>
 {% endblock %}

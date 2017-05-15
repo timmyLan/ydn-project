@@ -1,9 +1,10 @@
 <!-- Info -->
 <div class="info info-danger ellipsis">
-    <h3 class="info-context">info-danger</h3>
+    <h3 class="info-context">{% if status!= 200 %}{{ context }}{% endif %}</h3>
     <span class="info-close">x</span>
 </div>
 <div class="info info-success ellipsis">
     <h3 class="info-context">info-success</h3>
     <span class="info-close">x</span>
 </div>
+<input type="hidden" value="{{ layout }}" id="layoutVal">
