@@ -4227,7 +4227,7 @@ button:disabled,
     }
 
     body.is-loading #sidebar {
-        display: none;
+
     }
 
 }
@@ -4659,3 +4659,15 @@ button:disabled,
 .banner { position: relative; overflow: auto; }
 .banner li { list-style: none; }
 .banner ul li { float: left; }
+
+.admin-background{
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    top: 2%;
+    bottom: 0;
+    left: 10%;
+    right: 0;
+    z-index: 2;
+    opacity: .8;
+}

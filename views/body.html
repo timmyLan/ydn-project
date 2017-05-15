@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block style %}
-<link rel="stylesheet" href="/css/unslider.css">
+<link rel="stylesheet" href="/css/slider-pro.min.css">
 {% endblock %}
 {% block body %}
 <!-- Wrapper -->
@@ -10,13 +10,20 @@
         <div class="inner">
             <!-- Header -->
             {% include "header.html" %}
-            <div class="banner">
-                <ul>
-                    <li>My slide</li>
-                    <li>Another slide</li>
-                    <li>My last slide</li>
-                </ul>
-            </div>
+            <!--slider-->
+            <section class="slider-pro" id="my-slider">
+                <div class="sp-slides">
+                    <div class="sp-slide">
+                        <a target="_blank" href="https://www.taobao.com"><img class="sp-image" src="/images/pic01.jpg"/></a>
+                    </div>
+                    <div class="sp-slide">
+                        <img class="sp-image" src="/images/pic02.jpg"/>
+                    </div>
+                    <div class="sp-slide">
+                        <img class="sp-image" src="/images/pic03.jpg"/>
+                    </div>
+                </div>
+            </section>
             <!-- Banner -->
             <section id="banner">
                 <div class="content">
@@ -92,6 +99,6 @@
 </div>
 {% endblock %}
 {% block javascript %}
-<script src="/js/unslider-min.js"></script>
+<script src="/js/jquery.sliderPro.min.js"></script>
 <script src="/js/body.js"></script>
 {% endblock %}

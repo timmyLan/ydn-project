@@ -1,9 +1,9 @@
 /**
  * Created by llan on 2017/5/12.
  */
+
 const router = require('koa-router')();
 import {changePassword} from './common';
-
 import User from '../models/user';
 router.get('/', async(ctx)=> {
     return ctx.render('login');

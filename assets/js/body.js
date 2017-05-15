@@ -2,9 +2,11 @@
  * Created by llan on 2017/5/15.
  */
 (function ($) {
-    $('.banner').unslider({
-        animation: 'fade',
+    $( '#my-slider' ).sliderPro({
+        width:'100%',
+        height:500,
         autoplay: true,
-        arrows: false
+        buttons: false,
+        arrows: true
     });
 })(jQuery);
