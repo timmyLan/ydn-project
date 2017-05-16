@@ -14,7 +14,8 @@ import Property from '../models/property';
 import {
     getCompany, getProperty, getProduct,
     getCategory, editProduct, getAllProduct,
-    getProductByOption, createProduct, fileOperation, changePassword, getBody, countPerPage
+    getProductByOption, createProduct, fileOperation,
+    changePassword, getBody, deleteProduct, countPerPage
 } from './common';
 const checkSession = async(ctx, next)=> {
     if (ctx.session.login != 'passLogin') {
@@ -304,6 +305,7 @@ router.post('/editProduct/:id', upload.single('imgFile'), async(ctx, next)=> {
         }
     }
 });
+
 router.get('/editProduct/:id', upload.single('imgFile'), async(ctx, next)=> {
     await checkSession(ctx, next);
     let params = ctx.params,
@@ -319,5 +321,24 @@ router.get('/editProduct/:id', upload.single('imgFile'), async(ctx, next)=> {
         ...categories
     };
     return ctx.render('admin/editProduct', context);
+});
+
+router.post('/deleteProduct/:id', async(ctx, next)=> {
+    try {
+        await checkSession(ctx, next);
+        let params = ctx.params,
+            id = params.id;
+        await deleteProduct(id);
+        return ctx.body = {
+            status: 200,
+            context: '删除产品相关信息成功'
+        }
+    } catch (err) {
+        console.log('Error with editProduct', err);
+        return ctx.body = {
+            status: 400,
+            context: '删除产品相关信息失败'
+        }
+    }
 });
 module.exports = router;

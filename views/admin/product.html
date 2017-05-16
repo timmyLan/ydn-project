@@ -76,8 +76,9 @@
                                         <ul class="actions ellipsis" style="margin:0">
                                             <li><a href="/admin/editProduct/{{ product.id }}"
                                                    class="button small">修改</a></li>
-                                            <li><a href="/admin/deleteProduct/{{ product.id }}"
-                                                   class="button special small">删除</a></li>
+                                            <li>
+                                                <span class="button special small delete-button" data-id="{{ product.id }}" >删除</span>
+                                            </li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -101,7 +102,7 @@
                             {% endif %}
                         </div>
                         {% else%}
-                            <h4>很抱歉,找不到相应的结果</h4>
+                        <h4>很抱歉,找不到相应的结果</h4>
                         {% endif %}
                     </div>
                 </div>
@@ -109,4 +110,7 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block javascript %}
+<script src="/js/searchProduct.js"></script>
 {% endblock %}

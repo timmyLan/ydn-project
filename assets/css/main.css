@@ -4656,11 +4656,20 @@ button:disabled,
     z-index: 1;
 }
 
-.banner { position: relative; overflow: auto; }
-.banner li { list-style: none; }
-.banner ul li { float: left; }
+.banner {
+    position: relative;
+    overflow: auto;
+}
 
-.admin-background{
+.banner li {
+    list-style: none;
+}
+
+.banner ul li {
+    float: left;
+}
+
+.admin-background {
     width: 100%;
     position: absolute;
     margin: auto;
@@ -4670,4 +4679,32 @@ button:disabled,
     right: 0;
     z-index: 2;
     opacity: .8;
+}
+
+.not-found {
+    background: #fff url("../images/404.jpg") no-repeat;
+    position: absolute;
+    top: 0;
+    left: 23rem;
+    right: 0;
+    bottom: 0;
+}
+
+.server-error {
+    background: #fff url("../images/500.png") no-repeat;
+    position: absolute;
+    top: 0;
+    left: 28rem;
+    right: 0;
+    bottom: 0;
+}
+
+.server-error > .return-home {
+    left: 9rem;
+}
+
+.return-home {
+    position: absolute;
+    top: 25rem;
+    left: 14rem;
 }

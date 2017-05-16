@@ -228,10 +228,37 @@ const fileOperation = async(files)=> {
 const changePassword = (password)=> {
     return md5(md5(password, fontKey, true), salt);
 };
+const deleteProduct = async(id)=> {
+    try {
+        let product = await Product.findById(id, {
+            raw: true
+        });
+        let {imgMainSrc, imgFirstSrc, imgSecondSrc, imgThirdSrc, imgFourthSrc} = product;
+        let deleteArr = [];
+        deleteArr.push(imgMainSrc);
+        deleteArr.push(imgFirstSrc);
+        deleteArr.push(imgSecondSrc);
+        deleteArr.push(imgThirdSrc);
+        deleteArr.push(imgFourthSrc);
+        for (let i = 0; i < deleteArr.length; i++) {
+            let imgPath = path.join(__dirname, '../assets', deleteArr[i]);
+            if (fs.existsSync(imgPath)) {
+                await fs.unlink(imgPath);
+            }
+        }
+        await Product.destroy({
+            where: {
+                id: id
+            }
+        });
+    } catch (err) {
+        console.log('Error with deleteProduct', err);
+    }
+};
 
 export {
     getBaseInfo, getCategory, getMore,
     getMoreCategory, getCompany, getProperty,
     getProduct, editProduct, getAllProduct,
-    getProductByOption, createProduct, fileOperation, changePassword, getBody, countPerPage
+    getProductByOption, createProduct, fileOperation, changePassword, getBody, deleteProduct, countPerPage
 };

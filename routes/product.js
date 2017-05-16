@@ -10,6 +10,9 @@ router.get('/:id', async(ctx)=> {
         let result = await Product.findById(id, {
             raw: true
         });
+        if (!result) {
+            return ctx.render('404');
+        }
         let baseInfo = await getBaseInfo();
         let context = {
             ...result,
