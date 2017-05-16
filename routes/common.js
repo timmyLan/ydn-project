@@ -86,14 +86,17 @@ const getProperty = async()=> {
         console.log('Error with getProperty', err);
     }
 };
+
 const getBaseInfo = async()=> {
     let sideBarResult = await getSidebar();
     let company = await getCompany();
     let body = await getBody();
+    let properties = await getProperty();
     return {
         ...sideBarResult,
         ...company,
-        ...body
+        ...body,
+        ...properties
     }
 };
 const getCategory = async()=> {

@@ -9,6 +9,8 @@ const upload = multer({dest: path.join(__dirname, '../assets/images')});
 import Company from '../models/company';
 import User from '../models/user';
 import Body from '../models/body';
+import Category from '../models/category';
+import Property from '../models/property';
 import {
     getCompany, getProperty, getProduct,
     getCategory, editProduct, getAllProduct,
@@ -97,6 +99,40 @@ router.post('/body', upload.fields([
                 id: 1
             }
         });
+        console.log('body', body);
+        for (let key in body) {
+            if (key.indexOf('property-') >= 0) {
+                let id = key.split('-')[1];
+                await Property.update({
+                    name: body[key]
+                }, {
+                    where: {
+                        id: id
+                    }
+                })
+            }
+            if (key.indexOf('category-') >= 0) {
+                let id = key.split('-')[1];
+                await Category.update({
+                    name: body[key]
+                }, {
+                    where: {
+                        id: id
+                    }
+                })
+            }
+            if (key.indexOf('categoryIntroduction-') >= 0) {
+                let id = key.split('-')[1];
+                await Category.update({
+                    introduction: body[key]
+                }, {
+                    where: {
+                        id: id
+                    }
+                })
+            }
+        }
+
         return ctx.body = {
             status: 200,
             context: '修改主页相关信息成功'
@@ -151,10 +187,16 @@ router.get('/company', async(ctx, next)=> {
 
 router.get('/body', async(ctx, next)=> {
     await checkSession(ctx, next);
-    let context = await getBody();
+    let body = await getBody();
+    let properties = await getProperty();
+    let categories = await getCategory();
+    let context = {
+        ...body,
+        ...properties,
+        ...categories
+    };
     return ctx.render('admin/body', context);
 });
-
 router.all('/searchProduct/:currentPage', async(ctx, next)=> {
     await checkSession(ctx, next);
     let body = ctx.request.body,

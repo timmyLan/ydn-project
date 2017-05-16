@@ -74,7 +74,7 @@
             <!-- Section -->
             <section>
                 <header class="major">
-                    <h2>{{ body.faddishName }}</h2>
+                    <h2>{{ properties[0]['name'] }}</h2>
                 </header>
                 <div class="posts">
                     {% for faddish in faddish %}
@@ -91,7 +91,7 @@
             </section>
             <section>
                 <header class="major">
-                    <h2>{{ body.freshName }}</h2>
+                    <h2>{{ properties[1]['name'] }}</h2>
                 </header>
                 <div class="posts">
                     {% for fresh in fresh %}
