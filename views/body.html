@@ -13,6 +13,7 @@
             <!--slider-->
             <section class="slider-pro" id="my-slider">
                 <div class="sp-slides">
+                    {% if body.firstActivitySrc %}
                     <div class="sp-slide">
                         <a target="_blank" href="{{ body.firstActivityTbSrc }}">
                             <img class="sp-image" src="{{ body.firstActivitySrc }}"
@@ -20,6 +21,8 @@
                                  data-retina="{{ body.firstActivitySrc }}"/>
                         </a>
                     </div>
+                    {% endif %}
+                    {% if body.secondActivitySrc %}
                     <div class="sp-slide">
                         <a target="_blank" href="{{ body.secondActivityTbSrc }}">
                             <img class="sp-image" src="{{ body.secondActivitySrc }}"
@@ -27,6 +30,8 @@
                                  data-retina="{{ body.secondActivitySrc }}"/>
                         </a>
                     </div>
+                    {% endif %}
+                    {% if body.thirdActivitySrc %}
                     <div class="sp-slide">
                         <a target="_blank" href="{{ body.thirdActivityTbSrc }}">
                             <img class="sp-image" src="{{ body.thirdActivitySrc }}"
@@ -34,6 +39,7 @@
                                  data-retina="{{ body.thirdActivitySrc }}"/>
                         </a>
                     </div>
+                    {% endif %}
                 </div>
             </section>
             <!-- Banner -->
