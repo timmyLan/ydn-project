@@ -1,4 +1,8 @@
 {% extends "layout.html" %}
+{% block style %}
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css"/>
+<link rel="stylesheet" href="/css/map.css">
+{% endblock %}
 {% block body %}
 <!-- Wrapper -->
 <div id="wrapper">
@@ -32,8 +36,15 @@
                 <h2>公司员工</h2>
                 <p>{{ company.staff }}</p>
 
+                <hr class="major"/>
+
+                <h2>公司位置</h2>
+                <div id="allmap"></div>
             </section>
         </div>
     </div>
 </div>
+{% endblock %}
+{% block javascript %}
+<script src="/js/map.js"></script>
 {% endblock %}

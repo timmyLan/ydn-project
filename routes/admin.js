@@ -29,6 +29,20 @@ router.get('/', async(ctx, next)=> {
     return ctx.render('admin/admin');
 });
 
+/**
+ * 用户相关
+ */
+
+router.get('/user', async(ctx, next)=> {
+    try {
+        await checkSession(ctx, next);
+        let company = await getCompany();
+        return ctx.render('admin/user', company);
+    } catch (err) {
+        console.log('Error with get user', err);
+    }
+});
+
 router.post('/user', async(ctx, next)=> {
     try {
         await checkSession(ctx, next);
@@ -57,6 +71,7 @@ router.post('/user', async(ctx, next)=> {
                 context: '输入的两次密码不相同'
             }
         }
+
         let password = changePassword(body['password']);
         await User.update({
             name: body.name,
@@ -66,6 +81,7 @@ router.post('/user', async(ctx, next)=> {
                 id: 1
             }
         });
+        ctx.session.login = null;
         return ctx.body = {
             status: 200,
             context: '修改用户信息成功'
@@ -74,9 +90,28 @@ router.post('/user', async(ctx, next)=> {
         console.log('Error with editUser', err);
         return ctx.body = {
             status: 400,
-            info: '修改用户信息失败'
+            context: '修改用户信息失败'
         }
     }
+});
+
+/**
+ * 主页相关
+ */
+
+router.get('/body', async(ctx, next)=> {
+    await checkSession(ctx, next);
+    let body = await getBody();
+    let properties = await getProperty();
+    let categories = await getCategory();
+    let company = await getCompany();
+    let context = {
+        ...body,
+        ...properties,
+        ...categories,
+        ...company
+    };
+    return ctx.render('admin/body', context);
 });
 
 router.post('/body', upload.fields([
@@ -100,7 +135,6 @@ router.post('/body', upload.fields([
                 id: 1
             }
         });
-        console.log('body', body);
         for (let key in body) {
             if (key.indexOf('property-') >= 0) {
                 let id = key.split('-')[1];
@@ -147,6 +181,9 @@ router.post('/body', upload.fields([
     }
 });
 
+/**
+ * 公司相关
+ */
 router.post('/company', upload.fields([
     {name: 'companySrc', maxCount: 1},
     {name: 'companyMainSrc', maxCount: 1}
@@ -186,18 +223,9 @@ router.get('/company', async(ctx, next)=> {
     return ctx.render('admin/company', context);
 });
 
-router.get('/body', async(ctx, next)=> {
-    await checkSession(ctx, next);
-    let body = await getBody();
-    let properties = await getProperty();
-    let categories = await getCategory();
-    let context = {
-        ...body,
-        ...properties,
-        ...categories
-    };
-    return ctx.render('admin/body', context);
-});
+/**
+ * 产品相关
+ */
 router.all('/searchProduct/:currentPage', async(ctx, next)=> {
     await checkSession(ctx, next);
     let body = ctx.request.body,
@@ -233,6 +261,9 @@ router.all('/searchProduct/:currentPage', async(ctx, next)=> {
     };
     return ctx.render('admin/product', context);
 });
+/**
+ * 添加产品
+ */
 router.get('/addProduct', async(ctx, next)=> {
     await checkSession(ctx, next);
     let company = await getCompany();
@@ -277,7 +308,9 @@ router.post('/addProduct', upload.fields([
         }
     }
 });
-
+/**
+ * 修改产品
+ */
 router.post('/editProduct/:id', upload.single('imgFile'), async(ctx, next)=> {
     try {
         await checkSession(ctx, next);
@@ -322,7 +355,9 @@ router.get('/editProduct/:id', upload.single('imgFile'), async(ctx, next)=> {
     };
     return ctx.render('admin/editProduct', context);
 });
-
+/**
+ * 删除产品
+ */
 router.post('/deleteProduct/:id', async(ctx, next)=> {
     try {
         await checkSession(ctx, next);

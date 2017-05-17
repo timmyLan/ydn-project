@@ -44,5 +44,4 @@ router.post('/', async(ctx)=> {
         return ctx.redirect('/admin');
     }
 });
-
 module.exports = router;

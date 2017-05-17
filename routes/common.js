@@ -225,6 +225,7 @@ const fileOperation = async(files)=> {
     }
     return info;
 };
+
 const changePassword = (password)=> {
     return md5(md5(password, fontKey, true), salt);
 };
