@@ -236,11 +236,21 @@ const deleteProduct = async(id)=> {
         });
         let {imgMainSrc, imgFirstSrc, imgSecondSrc, imgThirdSrc, imgFourthSrc} = product;
         let deleteArr = [];
-        deleteArr.push(imgMainSrc);
-        deleteArr.push(imgFirstSrc);
-        deleteArr.push(imgSecondSrc);
-        deleteArr.push(imgThirdSrc);
-        deleteArr.push(imgFourthSrc);
+        if(imgMainSrc){
+            deleteArr.push(imgMainSrc);
+        }
+        if(imgFirstSrc){
+            deleteArr.push(imgFirstSrc);
+        }
+        if(imgSecondSrc){
+            deleteArr.push(imgSecondSrc);
+        }
+        if(imgThirdSrc){
+            deleteArr.push(imgThirdSrc);
+        }
+        if(imgFourthSrc){
+            deleteArr.push(imgFourthSrc);
+        }
         for (let i = 0; i < deleteArr.length; i++) {
             let imgPath = path.join(__dirname, '../assets', deleteArr[i]);
             if (fs.existsSync(imgPath)) {

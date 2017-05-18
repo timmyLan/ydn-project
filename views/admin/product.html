@@ -1,4 +1,7 @@
 {% extends "./adminLayout.html" %}
+{% block style %}
+<link rel="stylesheet" href="/css/modal.css">
+{% endblock %}
 {% block body %}
 <div id="wrapper">
     <!-- Main -->
@@ -77,7 +80,8 @@
                                             <li><a href="/admin/editProduct/{{ product.id }}"
                                                    class="button small">修改</a></li>
                                             <li>
-                                                <span class="button special small delete-button" data-id="{{ product.id }}" >删除</span>
+                                                <span class="button special small delete-button"
+                                                      data-id="{{ product.id }}" data-name="{{ product.name }}">删除</span>
                                             </li>
                                         </ul>
                                     </td>
@@ -109,6 +113,11 @@
             </section>
         </div>
     </div>
+</div>
+<div id="modal">
+    <h3>是否删除<span>XX</span></h3>
+    <span class="button special small delete-confirm">删除</span>
+    <span class="button special small delete-cancel">取消</span>
 </div>
 {% endblock %}
 {% block javascript %}
