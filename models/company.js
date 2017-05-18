@@ -7,43 +7,43 @@ const Company = sequelize.define(
     'company',
     {
         'name': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'address': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'tbUrl': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'phone': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'email': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'copyright':{
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'sortIntroduction':{
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'introduction':{
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'power':{
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'culture':{
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'staff':{
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'companySrc':{
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'companyMainSrc':{
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         }
     }
 );

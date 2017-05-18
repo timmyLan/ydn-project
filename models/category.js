@@ -8,10 +8,10 @@ const Category = sequelize.define(
     'category',
     {
         'name': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'introduction': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'isShow': {
             'type': Sequelize.BOOLEAN

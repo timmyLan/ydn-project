@@ -6,23 +6,32 @@ import sequelize from '../sequelize';
 const Body = sequelize.define(
     'body',
     {
+        'faddishName': {
+            'type': Sequelize.STRING
+        },
+        'freshName': {
+            'type': Sequelize.STRING
+        },
+        'mainName': {
+            'type': Sequelize.STRING
+        },
         'firstActivitySrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'secondActivitySrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'thirdActivitySrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'firstActivityTbSrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'secondActivityTbSrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'thirdActivityTbSrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         }
     }
 );

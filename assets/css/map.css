@@ -3,7 +3,7 @@
     height: 25rem;
     overflow: hidden;
     margin-bottom: 4rem;
-    font-family: "微软雅黑";
+    font-family: "Microsoft YaHei";
     position: absolute;
 }
 
@@ -47,6 +47,7 @@ table {
     border-collapse: separate;
     margin: 0;
 }
-.BMapLib_nav_tab_content li{
-    padding:0;
+
+.BMapLib_nav_tab_content li {
+    padding: 0;
 }

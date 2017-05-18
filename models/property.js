@@ -8,10 +8,10 @@ const Property = sequelize.define(
     'property',
     {
         'name': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'type': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         }
     }
 );

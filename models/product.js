@@ -8,46 +8,46 @@ const Product = sequelize.define(
     'product',
     {
         'name': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'introduction': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'isShow': {
             'type': Sequelize.BOOLEAN
         },
         'tbUrl': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'sortIntroduction': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'imgMainSrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'imgFirstSrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'imgSecondSrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'imgThirdSrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'imgFourthSrc': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING
         },
         'imgFirstIntroduction': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'imgSecondIntroduction': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'imgThirdIntroduction': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         },
         'imgFourthIntroduction': {
-            'type': Sequelize.STRING(64)
+            'type': Sequelize.STRING(1234)
         }
     }
 );
