@@ -7,7 +7,7 @@ function init() {
     map.centerAndZoom(poi, 16);
     map.enableScrollWheelZoom();
     var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
-        '<img src="../img/baidu.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
+        '<img src="../images/door.jpeg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
         '地址：广州市番禺区钟村105国道钟村装饰城二楼C1-236<br/>电话：020-84519779<br/>简介：银蒂尼 Intiny---纯银时代总部' +
         '</div>';
     var BMapLib = window.BMapLib = BMapLib || {}
