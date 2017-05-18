@@ -22,22 +22,21 @@
                 <p>{{ company.introduction }}</p>
 
                 <hr class="major"/>
-
+                {% if company.power %}
                 <h2>公司实力</h2>
                 <p>{{ company.power }}</p>
-
                 <hr class="major"/>
-
+                {% endif %}
+                {% if company.culture %}
                 <h2>公司文化</h2>
                 <p>{{ company.culture }}</p>
-
+                {% endif %}
                 <hr class="major"/>
-
+                {% if company.staff %}
                 <h2>公司员工</h2>
                 <p>{{ company.staff }}</p>
-
                 <hr class="major"/>
-
+                {% endif %}
                 <h2>公司位置</h2>
                 <div id="allmap"></div>
             </section>

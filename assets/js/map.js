@@ -3,12 +3,12 @@
  */
 function init() {
     var map = new BMap.Map("allmap");            // 创建Map实例
-    var poi = new BMap.Point(116.307852,40.057031);
+    var poi = new BMap.Point(113.307655,22.973554);
     map.centerAndZoom(poi, 16);
     map.enableScrollWheelZoom();
     var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
         '<img src="../img/baidu.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
-        '地址：北京市海淀区上地十街10号<br/>电话：(010)59928888<br/>简介：百度大厦位于北京市海淀区西二旗地铁站附近，为百度公司综合研发及办公总部。' +
+        '地址：广州市番禺区钟村105国道钟村装饰城二楼C1-236<br/>电话：020-84519779<br/>简介：银蒂尼 Intiny---纯银时代总部' +
         '</div>';
     var BMapLib = window.BMapLib = BMapLib || {}
         , BMAPLIB_TAB_SEARCH = 0
@@ -1095,9 +1095,8 @@ function init() {
     //创建检索信息窗口对象
     var searchInfoWindow = null;
     searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
-        title  : "百度大厦",      //标题
+        title  : "银蒂尼 Intiny",      //标题
         width  : 600,             //宽度
-        height : 200,              //高度
         panel  : "panel",         //检索结果面板
         enableAutoPan : true,     //自动平移
         searchTypes   :[

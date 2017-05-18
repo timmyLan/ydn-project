@@ -6,15 +6,6 @@ import sequelize from '../sequelize';
 const Body = sequelize.define(
     'body',
     {
-        'faddishName': {
-            'type': Sequelize.STRING
-        },
-        'freshName': {
-            'type': Sequelize.STRING
-        },
-        'mainName': {
-            'type': Sequelize.STRING
-        },
         'firstActivitySrc': {
             'type': Sequelize.STRING
         },

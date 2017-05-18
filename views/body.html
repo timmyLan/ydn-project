@@ -66,7 +66,15 @@
                 <div class="features">
                     {% for category in categories %}
                     <article>
+                        {% if loop.index == 1 %}
                         <span class="icon fa-diamond"></span>
+                        {% elif loop.index == 2 %}
+                        <span class="icon fa-heart-o"></span>
+                        {% elif loop.index == 3 %}
+                        <span class="icon fa-star-o"></span>
+                        {% else %}
+                        <span class="icon fa-fire"></span>
+                        {% endif %}
                         <div class="content">
                             <h3>{{ category.name }}</h3>
                             <p>{{ category.introduction }}</p>
