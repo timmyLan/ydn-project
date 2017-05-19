@@ -4,6 +4,7 @@
 
 const router = require('koa-router')();
 import path from 'path';
+import fs from 'fs';
 import multer from 'koa-multer';
 const upload = multer({dest: path.join(__dirname, '../assets/images')});
 import Company from '../models/company';
@@ -15,7 +16,8 @@ import {
     getCompany, getProperty, getProduct,
     getCategory, editProduct, getAllProduct,
     getProductByOption, createProduct, fileOperation,
-    changePassword, getBody, deleteProduct, countPerPage
+    changePassword, getBody, deleteProduct, deleteImgs,
+    countPerPage
 } from './common';
 const checkSession = async(ctx, next)=> {
     if (ctx.session.login != 'passLogin') {
@@ -311,21 +313,35 @@ router.post('/addProduct', upload.fields([
 /**
  * 修改产品
  */
-router.post('/editProduct/:id', upload.single('imgFile'), async(ctx, next)=> {
+router.post('/editProduct/:id', upload.fields([
+    {name: 'imgMainSrc', maxCount: 1},
+    {name: 'imgFirstSrc', maxCount: 1},
+    {name: 'imgSecondSrc', maxCount: 1},
+    {name: 'imgThirdSrc', maxCount: 1},
+    {name: 'imgFourthSrc', maxCount: 1}
+]), async(ctx, next)=> {
     try {
         await checkSession(ctx, next);
         let params = ctx.params,
             id = params.id;
         let body = ctx.req.body;
-        if (ctx.req.file) {
+        let deleteArr = [];
+        if (ctx.req.files) {
             let files = ctx.req.files;
             let imgInfo = await fileOperation(files);
             body = {
                 ...body,
                 ...imgInfo
+            };
+            let product = await getProduct(id);
+            for (let key in imgInfo) {
+                deleteArr.push(product['product'][key]);
             }
         }
         await editProduct(id, body);
+        if (deleteArr.length > 0) {
+            await deleteImgs(deleteArr);
+        }
         return ctx.body = {
             status: 200,
             context: '修改产品相关信息成功'
@@ -339,7 +355,7 @@ router.post('/editProduct/:id', upload.single('imgFile'), async(ctx, next)=> {
     }
 });
 
-router.get('/editProduct/:id', upload.single('imgFile'), async(ctx, next)=> {
+router.get('/editProduct/:id', async(ctx, next)=> {
     await checkSession(ctx, next);
     let params = ctx.params,
         id = params.id;

@@ -229,6 +229,14 @@ const fileOperation = async(files)=> {
 const changePassword = (password)=> {
     return md5(md5(password, fontKey, true), salt);
 };
+const deleteImgs = async(deleteArr)=> {
+    for (let i = 0; i < deleteArr.length; i++) {
+        let imgPath = path.join(__dirname, '../assets', deleteArr[i]);
+        if (fs.existsSync(imgPath)) {
+            await fs.unlink(imgPath);
+        }
+    }
+};
 const deleteProduct = async(id)=> {
     try {
         let product = await Product.findById(id, {
@@ -236,27 +244,22 @@ const deleteProduct = async(id)=> {
         });
         let {imgMainSrc, imgFirstSrc, imgSecondSrc, imgThirdSrc, imgFourthSrc} = product;
         let deleteArr = [];
-        if(imgMainSrc){
+        if (imgMainSrc) {
             deleteArr.push(imgMainSrc);
         }
-        if(imgFirstSrc){
+        if (imgFirstSrc) {
             deleteArr.push(imgFirstSrc);
         }
-        if(imgSecondSrc){
+        if (imgSecondSrc) {
             deleteArr.push(imgSecondSrc);
         }
-        if(imgThirdSrc){
+        if (imgThirdSrc) {
             deleteArr.push(imgThirdSrc);
         }
-        if(imgFourthSrc){
+        if (imgFourthSrc) {
             deleteArr.push(imgFourthSrc);
         }
-        for (let i = 0; i < deleteArr.length; i++) {
-            let imgPath = path.join(__dirname, '../assets', deleteArr[i]);
-            if (fs.existsSync(imgPath)) {
-                await fs.unlink(imgPath);
-            }
-        }
+        await deleteImgs(deleteArr);
         await Product.destroy({
             where: {
                 id: id
@@ -271,5 +274,7 @@ export {
     getBaseInfo, getCategory, getMore,
     getMoreCategory, getCompany, getProperty,
     getProduct, editProduct, getAllProduct,
-    getProductByOption, createProduct, fileOperation, changePassword, getBody, deleteProduct, countPerPage
+    getProductByOption, createProduct, fileOperation,
+    changePassword, getBody, deleteProduct, deleteImgs,
+    countPerPage
 };
