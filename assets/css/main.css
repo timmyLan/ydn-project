@@ -3811,8 +3811,26 @@ button:disabled,
     display: block;
     width: 100%;
 }
-
+@media screen and (min-width: 481px) and (max-width: 960px) {
+    .posts article .image img {
+        height: 16rem;
+    }
+}
+@media screen and (min-width: 960px){
+    .posts article .image img {
+        height: 20rem;
+    }
+}
+@media screen and (max-width: 481px){
+    .posts article .image img {
+        height: 14rem;
+    }
+}
 @media screen and (min-width: 1681px) {
+
+    .posts article .image img {
+        height: 20rem;
+    }
 
     .posts article:nth-child(3n + 1):before {
         display: none;
@@ -3845,11 +3863,9 @@ button:disabled,
     .posts article:nth-last-child(3) {
         margin-bottom: 6em;
     }
-
 }
 
 @media screen and (min-width: 481px) and (max-width: 1680px) {
-
     .posts article:nth-child(2n + 1):before {
         display: none;
     }
