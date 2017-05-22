@@ -58,7 +58,7 @@ module.exports = {
                 imgSecondIntroduction: 'imgSecondIntroduction',
                 imgThirdIntroduction: 'imgThirdIntroduction',
                 imgFourthIntroduction: 'imgFourthIntroduction',
-                isShow: true,
+                isShow: false,
                 created_at: new Date(),
                 updated_at: new Date()
             },
@@ -78,7 +78,7 @@ module.exports = {
                 imgSecondIntroduction: 'imgSecondIntroduction',
                 imgThirdIntroduction: 'imgThirdIntroduction',
                 imgFourthIntroduction: 'imgFourthIntroduction',
-                isShow: true,
+                isShow: false,
                 created_at: new Date(),
                 updated_at: new Date()
             },
@@ -137,7 +137,7 @@ module.exports = {
                 imgSecondIntroduction: 'imgSecondIntroduction',
                 imgThirdIntroduction: 'imgThirdIntroduction',
                 imgFourthIntroduction: 'imgFourthIntroduction',
-                isShow: true,
+                isShow: false,
                 created_at: new Date(),
                 updated_at: new Date()
             },
@@ -157,7 +157,7 @@ module.exports = {
                 imgSecondIntroduction: 'imgSecondIntroduction',
                 imgThirdIntroduction: 'imgThirdIntroduction',
                 imgFourthIntroduction: 'imgFourthIntroduction',
-                isShow: true,
+                isShow: false,
                 created_at: new Date(),
                 updated_at: new Date()
             },
@@ -216,7 +216,7 @@ module.exports = {
                 imgSecondIntroduction: 'imgSecondIntroduction',
                 imgThirdIntroduction: 'imgThirdIntroduction',
                 imgFourthIntroduction: 'imgFourthIntroduction',
-                isShow: true,
+                isShow: false,
                 created_at: new Date(),
                 updated_at: new Date()
             },

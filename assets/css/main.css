@@ -4716,3 +4716,16 @@ body {
     top: 25rem;
     left: 14rem;
 }
+
+.qr-code {
+    width: 4rem;
+    position: absolute;
+    left: .5rem;
+    top: 2rem;
+    z-index: 2;
+    display: none;
+}
+.icon-li{
+    position: relative;
+    line-height:26px;
+}

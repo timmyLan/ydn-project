@@ -7,6 +7,7 @@ module.exports = {
                 name: '纯银时代',
                 address: '广州市番禺区钟村105国道钟村装饰城二楼C1-236',
                 tbUrl: 'https://shop71936180.taobao.com',
+                wechatUrl: 'https://weidian.com/?userid=251138582&wfr=c',
                 phone: '020-84519779',
                 email: '84677236@qq.com',
                 copyright: 'copyright',

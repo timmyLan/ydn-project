@@ -4,7 +4,6 @@
 
 const router = require('koa-router')();
 import path from 'path';
-import fs from 'fs';
 import multer from 'koa-multer';
 const upload = multer({dest: path.join(__dirname, '../assets/images')});
 import Company from '../models/company';

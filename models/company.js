@@ -15,6 +15,9 @@ const Company = sequelize.define(
         'tbUrl': {
             'type': Sequelize.STRING
         },
+        'wechatUrl': {
+            'type': Sequelize.STRING
+        },
         'phone': {
             'type': Sequelize.STRING
         },
