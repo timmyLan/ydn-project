@@ -9,10 +9,8 @@ const host = 'localhost',
     database = 'jewelry',
     user = 'root',
     password = null,
-    timezone = '+08:00',
-    ip='localhost';
+    timezone = '+08:00';
 const config = {
-    ip: ip,
     dbConfig: {
         db: database,
         user: user,
