@@ -7,8 +7,8 @@
 const host = 'localhost',
     dialect = 'mysql',
     database = 'jewelry',
-    user = 'cysd',
-    password = 'Cysd,2017',
+    user = 'root',
+    password = null,
     timezone = '+08:00';
 const config = {
     dbConfig: {
