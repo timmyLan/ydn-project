@@ -8,7 +8,7 @@ const views = require('koa-nunjucks-promise');
 const session = require('koa-session');
 import sequelize from './sequelize';
 import router from './routes';
-
+import config from './config/config'
 //app keys
 app.keys = ['mypasswordchangeyourpassword'];
 //middleware
@@ -46,6 +46,6 @@ sequelize.sync(
 ).then(()=> {
     console.log('success to connect mysql~');
 });
-app.listen(3000,"0.0.0.0");
+app.listen(3000, config.ip);
 console.log('listening on 3000');
 
