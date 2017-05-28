@@ -24,7 +24,7 @@
             return false;
         }
         let formData = new FormData($('#editCompanyForm')[0]),
-        actionUrl = '/admin/company';
+        actionUrl = '/cysd/company';
         $.ajax({
             url: actionUrl,
             type: 'POST',

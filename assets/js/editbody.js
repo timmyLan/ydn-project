@@ -24,7 +24,7 @@
             return false;
         }
         let formData = new FormData($('#editBodyForm')[0]),
-        actionUrl = '/admin/body';
+        actionUrl = '/cysd/body';
         $.ajax({
             url: actionUrl,
             type: 'POST',

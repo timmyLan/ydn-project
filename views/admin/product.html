@@ -13,7 +13,7 @@
                 <div class="content">
                     <div class="row">
                         <h2>产品搜索</h2>
-                        <form method="post" action="/admin/searchProduct/1" style="width: 100%">
+                        <form method="post" action="/cysd/searchProduct/1" style="width: 100%">
                             <div class="row uniform">
                                 <div class="6u 12u$(xsmall)">
                                     <label for="name">产品名称</label>
@@ -77,7 +77,7 @@
                                     <td class="ellipsis">{{ product['category.name'] }}</td>
                                     <td>
                                         <ul class="actions ellipsis" style="margin:0">
-                                            <li><a href="/admin/editProduct/{{ product.id }}"
+                                            <li><a href="/cysd/editProduct/{{ product.id }}"
                                                    class="button small">修改</a></li>
                                             <li>
                                                 <span class="button special small delete-button"
@@ -91,15 +91,15 @@
                             </table>
                             {% if products.pageArrs.length > 1%}
                             <ul class="pagination">
-                                <li><a href="/admin/searchProduct/{{ products.currentPage - 1 }}"
+                                <li><a href="/cysd/searchProduct/{{ products.currentPage - 1 }}"
                                        class="button {% if products.currentPage == 1 %}disabled{% endif %}">上一页</a>
                                 </li>
                                 {% for page in products.pageArrs %}
-                                <li><a href="/admin/searchProduct/{{ page }}"
+                                <li><a href="/cysd/searchProduct/{{ page }}"
                                        class="page {% if products.currentPage == page %} active {% endif %}">{{
                                     page}}</a></li>
                                 {% endfor %}
-                                <li><a href="/admin/searchProduct/{{ products.currentPage + 1 }}"
+                                <li><a href="/cysd/searchProduct/{{ products.currentPage + 1 }}"
                                        class="button {% if products.currentPage == products.pageArrs.length %}disabled{% endif %}">下一页</a>
                                 </li>
                             </ul>

@@ -41,7 +41,7 @@ router.post('/', async(ctx)=> {
         })
     } else {
         ctx.session.login = 'passLogin';
-        return ctx.redirect('/admin');
+        return ctx.redirect('/cysd');
     }
 });
 module.exports = router;

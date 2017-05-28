@@ -12,6 +12,6 @@ router.use('/product', product.routes());
 router.use('/company', company.routes());
 router.use('/', body.routes());
 router.use('/more', more.routes());
-router.use('/admin', admin.routes());
+router.use('/cysd', admin.routes());
 router.use('/login', login.routes());
 export default router;

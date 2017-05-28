@@ -42,11 +42,11 @@
             if (!id) {
                 //添加产品
                 formData = new FormData($('#addProductForm')[0]);
-                actionUrl = '/admin/addProduct';
+                actionUrl = '/cysd/addProduct';
             } else {
                 //修改产品
                 formData = new FormData($('#editProductForm')[0]);
-                actionUrl = `/admin/editProduct/${id}`;
+                actionUrl = `/cysd/editProduct/${id}`;
             }
             $.ajax({
                 url: actionUrl,

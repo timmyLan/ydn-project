@@ -11,7 +11,6 @@
         var name = $(this).data('name');
         $modal.find('h3>span').text(name);
         $modal.show();
-
     });
     $('.delete-cancel').on('click', function (e) {
         e.preventDefault();
@@ -19,7 +18,7 @@
     });
     $('.delete-confirm').on('click', function (e) {
         e.preventDefault();
-        var actionUrl = '/admin/deleteProduct/' + id;
+        var actionUrl = '/cysd/deleteProduct/' + id;
         $.ajax({
             url: actionUrl,
             type: 'POST',

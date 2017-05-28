@@ -48,7 +48,7 @@
             password: password,
             rePassword: rePassword
         };
-        var actionUrl = '/admin/user';
+        var actionUrl = '/cysd/user';
         $.ajax({
             url: actionUrl,
             type: 'POST',
