@@ -7,7 +7,7 @@
     padding-left: 40%;
     padding-top: 10rem;
     background-color: rgba(255,255,255,.4) !important;
-    /*display: none;*/
+    display: none;
 }
 #modal h3{
     padding-left: 2rem;
