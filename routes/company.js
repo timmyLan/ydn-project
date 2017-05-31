@@ -13,4 +13,13 @@ router.get('/', async(ctx)=> {
     }
 });
 
+router.get('/more', async(ctx)=> {
+    try {
+        let context = await getBaseInfo();
+        return ctx.render('moreCompany', context);
+    } catch (err) {
+        console.log('ERROR with moreCompany render', err);
+    }
+});
+
 module.exports = router;

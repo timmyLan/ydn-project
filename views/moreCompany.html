@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block style %}
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css"/>
+<link rel="stylesheet" href="/css/map.css">
+{% endblock %}
+{% block body %}
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Header -->
+            {% include "header.html" %}
+            <!-- Content -->
+            <section>
+                <header class="main">
+                    <h1>纯银时代分店联系方式</h1>
+                </header>
+                <div id="allmap"></div>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+<script src="/js/moreMap.js"></script>
+{% endblock %}

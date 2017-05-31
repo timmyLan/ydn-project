@@ -35,6 +35,7 @@ app.use(async(ctx, next) => {
         }
     }
 });
+
 //routes
 app.use(router.routes());
 //connect mysql
