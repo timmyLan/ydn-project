@@ -21,5 +21,4 @@ router.get('/more', async(ctx)=> {
         console.log('ERROR with moreCompany render', err);
     }
 });
-
 module.exports = router;
